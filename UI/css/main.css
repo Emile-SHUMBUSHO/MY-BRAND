@@ -1,0 +1,105 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.main{
+    width: 100%;
+    background-image: url("../images/banner.png");
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+}
+
+.navBar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.log{
+    margin-left: 50px;
+}
+
+.log img{
+    width: 150px;
+    height: 140px;
+}
+
+.navigation{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 10px;
+    margin-right: 50px;
+}
+
+ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ul li{
+    list-style: none;
+    font-size: 14px;
+    padding: 15px;
+}
+
+ul li a{
+    text-decoration: none;
+    font-family: Arial;
+    font-weight: bold;
+    color: #FFFF;
+    transition: 0.4s ease-in-out;
+}
+
+ul li a:hover{
+    color: #C2E7FF;
+}
+
+.letConnectBtn {
+    border-radius: 5px;
+    border: 1px solid #FFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.letConnectBtn a{
+    text-decoration: none;
+    font-family: Arial;
+    color: #FFFF;
+    transition: 0.4s ease-in-out;
+}
+
+.welcome{
+    margin-left: 50px;
+    width: 200px;
+    padding: 30px 0 30px 0;
+}
+
+.content{
+    display: flex;
+    justify-content: space-between;
+}
+
+.leftSide{
+    margin-left: 50px;
+}
+
+.leftSide h1,p{
+    padding: 20px 0 20px 0;
+    color:#ffff;
+}
+
+.rightSide{
+    margin-right: 50px;
+}
+
+
+.rightSide img{
+    width: 500px;
+}
+
