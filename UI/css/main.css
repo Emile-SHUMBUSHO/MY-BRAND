@@ -121,6 +121,13 @@ h4{
     color: #FFFF;
 }
 
+h5{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    color: #FFFF; 
+}
+
 p{
     font-family: 'Roboto';
     font-size: 28px;
@@ -221,7 +228,7 @@ p{
 }
 
 .tabBtn{
-    width: 250px;
+    width: 200px;
     border: 0;
     padding: 10px;
     background-color: #3F2435;
