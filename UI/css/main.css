@@ -219,6 +219,7 @@ p{
 }
 
 .tabs{
+    overflow: hidden;
     display: flex;
     justify-content: space-around;
     width: 60%;
@@ -234,6 +235,16 @@ p{
     background-color: #3F2435;
     color: #ffff;
     font-size: 21px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.tabBtn:hover{
+    background-color: #2C244D;
+}
+
+.tabs button.active{
+    background-color: #696672;
 }
 
 .my-work-container{

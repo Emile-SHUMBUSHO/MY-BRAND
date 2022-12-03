@@ -12,7 +12,7 @@
     <div class="main">
         <div class="navBar">
             <div class="log">
-                <img src="./UI/images/logo.png" alt="">
+                <a href="./index.html"><img src="./UI/images/logo.png" alt=""></a>
             </div>
             <div class="navigation">
                 <div class="menu">
@@ -74,7 +74,7 @@
                 <div class="intro-titles">
                     <h3>Skills</h3>
                     <p class="skills-description">
-                        Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.
+                        Being a software developer, takes time to learn, develop, solving diffent programs and cooperate with others in order to improve and keep thriving in this environment. As a developer I try to improve my self throught learning, here I have enumerated some of the most skills I have acquired in this environment.
                     </p>
                 </div>
                 <div class="skills-container">
@@ -107,14 +107,14 @@
                 <div class="intro-titles">
                     <h3>My Work</h3>
                     <p class="my-work-description">
-                        Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.
+                        For a while I have been working on some of different projects, in different areas of software development ecosystem. 
                     </p>
                 </div>
                 <!-- tabs section -->
                 <div class="tabs">
-                    <button class="tabBtn" onclick="openMyWork('tab-one')">Tab 1</button>
-                    <button class="tabBtn" onclick="openMyWork('tab-two')">Tab 2</button>
-                    <button class="tabBtn" onclick="openMyWork('tab-three')">Tab 3</button>
+                    <button class="tabBtn" onclick="openMyWork(event, 'tab-one')">Tab 1</button>
+                    <button class="tabBtn" onclick="openMyWork(event, 'tab-two')">Tab 2</button>
+                    <button class="tabBtn" onclick="openMyWork(event, 'tab-three')">Tab 3</button>
                 </div>
                 <!-- tab one -->
                 <div id="tab-one" class="my-work-container">
@@ -205,14 +205,19 @@
     </div>
     <!-- Add javaScript to controll tabs -->
     <script>
-        function openMyWork(workName){
-            var i;
+        function openMyWork(evt, workName){
+            var i, tabBtn;
             var x = document.getElementsByClassName("my-work-container");
             var tab = document.getElementsByClassName("tabBtn");
             for(i = 0; i < x.length; i++){
                 x[i].style.display = "none";
             }
             document.getElementById(workName).style.display = "inline-flex";
+            tabBtn = document.getElementsByClassName("tabBtn");
+            for(i = 0; i < tabBtn.length; i++){
+                tabBtn[i].className = tabBtn[i].className.replace("active", "");
+            }
+            evt.currentTarget.className += " active";
         }
     </script>
 </body>
