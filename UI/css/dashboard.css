@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.wrapper{
+    width: 100%;
+    height: 100vh;
+    background-color: #F6F8FC;
+
+}
+
+.header{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.logo{
+    width: 20%;
+}
+
+.logo > img{
+    margin: 10px;
+}
+
+.profile{
+    width: 75%;
+    height: 60px;
+    background-color: #D3E3FD;
+    border-radius: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.profile > svg{
+    margin: 10px;
+}
+
+.item1{
+    /* grid-area: menu; */
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+}
+
+.item2{
+    /* grid-area: content; */
+    width: 75%;
+    height: 550px;
+    background-color: #FFFF;
+    border-radius: 15px;
+}
+
+.grid-container{
+    /* display: grid;
+    grid-template-areas: 'menu content'; */
+    display: flex;
+}
+
+.grid-container > div {
+    text-align: center;
+  }
+
+button {
+    background-color: #D3E3FD;
+    width: 70%;
+    height: 40px;
+    border: 0;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    margin: 20px 0 0 0;
+}
+
+.content-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 10%;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-color: #D3E3FD;
+}
+
+.left{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 10px;
+}
+
+.right{
+    margin: 10px;
+}
+
+.article-controller{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100px;
+    height: 30px;
+    border-radius: 10px;
+    background-color: #FFFF;
+    margin: 0 0 0 15px;
+}
+
+.content-body{
+    height: 90%;
+    overflow-y: scroll;
+}
+
+.content-row{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 10px;
+    gap: 10px;
+}
+
+h3 p {
+    font-family: 'Roboto', sans-serif;
+}
