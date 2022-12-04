@@ -31,7 +31,7 @@
             color: #ffff;
         }
         .submit-container{
-           
+
         }
 
         .submit-container > input{
@@ -42,6 +42,22 @@
             border-radius: 10px;
             border: 1px solid #ffff;
             color: #ffff;
+        }
+
+        .subscribe-input-container{
+            border: 3px solid #151515;
+            border-radius: 8px; 
+            width: 450px; 
+            height: 40px; 
+            display: flex; 
+            justify-content: space-between; 
+            padding: 2px;
+        }
+
+        .subscribe-email-address{
+            border: 0;
+            width: 90%;
+            margin-left: 20px;
         }
     </style>
 </head>
@@ -157,8 +173,8 @@
                     Subscribe to my news latter
                     and never miss any updates
                 </p>
-                <div style="border: 3px solid #151515;border-radius: 8px; width: 450px; height: 40px; display: flex; justify-content: space-between; padding: 2px;">
-                    <input type="text" name="email" placeholder="Email address" style="border: 0; margin-left: 10px;">
+                <div class="subscribe-input-container">
+                    <input class="subscribe-email-address" type="text" name="email" placeholder="Email address">
                     <input type="submit" value="Submit" style="width: 100px;background-color: #2C244D; border-radius: 10px; color: white">
                 </div>
             </div>
