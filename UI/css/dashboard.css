@@ -2,6 +2,7 @@
 *{
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
 
 .wrapper{
@@ -20,6 +21,7 @@
 
 .logo{
     width: 20%;
+    cursor: pointer;
 }
 
 .logo > img{
@@ -33,14 +35,15 @@
     border-radius: 10px;
     display: flex;
     justify-content: flex-end;
+    align-items: center;
 }
 
-.profile > svg{
+.profile > img{
     margin: 10px;
+    cursor:progress;
 }
 
-.item1{
-    /* grid-area: menu; */
+.aside-bar-menu{
     width: 20%;
     display: flex;
     flex-direction: column;
@@ -48,33 +51,42 @@
 
 }
 
-.item2{
-    /* grid-area: content; */
-    width: 75%;
-    height: 550px;
-    background-color: #FFFF;
-    border-radius: 15px;
-}
-
-.grid-container{
-    /* display: grid;
-    grid-template-areas: 'menu content'; */
-    display: flex;
-}
-
-.grid-container > div {
-    text-align: center;
-  }
-
 button {
-    background-color: #D3E3FD;
     width: 70%;
     height: 40px;
     border: 0;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
     margin: 20px 0 0 0;
+    cursor: pointer;
+    overflow: hidden;
+    transition: 0.3;
 }
+
+.aside-bar-menu button:hover{
+    background-color: #D3E3FD;
+}
+.aside-bar-menu button.active{
+    background-color: #D3E3FD;
+}
+
+.dashboard-content{
+    width: 75%;
+    height: 550px;
+    background-color: #FFFF;
+    border-radius: 15px;
+    display: none;
+}
+
+.dashboard-wrapper{
+    display: flex;
+}
+
+.dashboard-wrapper > div {
+    text-align: center;
+  }
+
+
 
 .content-header{
     display: flex;
@@ -123,4 +135,171 @@ button {
 
 h3 p {
     font-family: 'Roboto', sans-serif;
+}
+
+.article-modal{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height:100%;
+    width:100%;
+    overflow: auto;
+    background-color:rgb(0, 0, 0, 0.5);
+}
+
+.create-modal-card{
+    width: 75%;
+    height: 550px;
+    background-color: #FFFF;
+    border-radius: 15px;
+}
+
+.article-content-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 10%;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-color: #C2E7FF;
+}
+
+.article-content-header > h3{
+    margin: 10px;
+}
+
+.article-content-header> svg{
+    margin: 10px;
+    cursor: progress;
+}
+
+.article-content-body{
+    padding: 10px;
+}
+
+.sub-menu-wrapper{
+    position: absolute;
+    top: 12%;
+    right: 5%;
+    width: 250px;
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.5s;
+}
+
+.sub-menu-wrapper.open-menu{
+    max-height: 400px;
+}
+
+.sub-menu{
+    border-radius: 10px;
+    background-color: #ffff;
+    padding: 20px;
+    margin: 10px;
+    box-shadow: 0 0 15px 5px rgb(248, 246, 246);
+}
+
+.sub-menu hr{
+    width: 100%;
+    height: 1px;
+    border: 0;
+    background-color: #ccc;
+    margin: 15px 0 10px;
+}
+
+.user-info{
+    display: flex;
+    align-items: center;
+}
+
+.user-info h3{
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.sub-menu-link{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #525252;
+    margin: 12px 0;
+}
+
+.sub-menu-link > p{
+    width: 100%;
+
+}
+
+.sub-menu-link svg{
+    width: 40px;
+    background-color: #e5e5e5;
+    border-radius: 50%;
+    padding: 8px;
+    margin-right: 15px;
+}
+
+.sub-menu-link span{
+    font-size: 16px;
+    transition: transform 0.5s;
+}
+
+.sub-menu-link:hover span{
+    transform: translateX(5px);
+}
+
+.sub-menu-link:hover p{
+    font-weight: 600;
+}
+
+.form-control{
+    width: 100%;
+}
+
+.input-contol{
+    padding: 10px;
+}
+
+.input-contol input{
+    width: 100%;
+    height: 40px;
+    border: 0;
+    border-bottom: 2px solid #E4E5E9;
+    padding: 10px;
+}
+
+.input-contol textarea{
+    padding: 10px;
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid #E4E5E9;
+}
+
+.input-contol > input:focus, input:hover, textarea:focus, textarea:hover{
+    outline: none !important;
+    box-shadow: 0 0 15px 5px rgb(248, 246, 246) !important;
+}
+
+.submit-contol{
+    margin-top: 40px;
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.submit-contol> input{
+    width: 200px;
+    height: 40px;
+    background-color: #C2E7FF;
+    border: 0;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: progress;
 }
