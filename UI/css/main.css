@@ -13,7 +13,7 @@ body{
     background-image: url("../images/banner.png");
     background-position: center;
     background-size: cover;
-    height: 105vh;
+    height: 110vh;
 }
 .navBar{
     display: flex;
@@ -24,8 +24,8 @@ body{
     margin-left: 35px;
 }
 .log img{
-    width: 150px;
-    height: 110px;
+    width: 75%;
+    height: 50%;
 }
 
 .log svg{
@@ -196,9 +196,10 @@ p{
 /* style for skills section */
 .skills-section{
     width: 100%;
-    height: 500px;
+    height: auto;
     display: flex;
     justify-content: center;
+
 }
 
 .skills-content{
@@ -207,20 +208,23 @@ p{
     background-color: #151515;
     border-radius: 25px;
     border: 8px solid #2C244D;
+    padding: 50px;
+    margin: 0px 0 50px 0;
 }
 
 .intro-titles{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 20px;
 }
 
-.skills-description{
-    font-size: 21px;
+.intro-titles p{
+    font-size: 28px;
     font-weight: 100;
     text-align: center;
+    font-family: 'Roboto';
 }
+
 .skills-container{
     display: flex;
     justify-content: center;
@@ -449,20 +453,6 @@ select:focus, select:hover {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* 481 */
 @media screen and (max-width: 480px) {
     .main{
         width: 100%;
@@ -484,17 +474,10 @@ select:focus, select:hover {
         align-items: center;
         margin-left: 0px;
     }
-    
-    .log img{
-        width: 150px;
-        height: 110px;
-    }
-
     .log svg{
         display: block;
         cursor: pointer;
     }
-    
     .navigation{
         display: none;
         flex-direction: column;
@@ -612,14 +595,8 @@ select:focus, select:hover {
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin: 20px;
     }
-    
-    .skills-description{
-        font-size: 21px;
-        font-weight: 100;
-        text-align: center;
-    }
+
     .skills-container{
         display: flex;
         flex-direction: column;
