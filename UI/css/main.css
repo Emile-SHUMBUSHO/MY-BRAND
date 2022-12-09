@@ -24,8 +24,8 @@ body{
     margin-left: 35px;
 }
 .log img{
-    width: 150px;
-    height: 110px;
+    width: 75%;
+    height: 50%;
 }
 
 .log svg{
@@ -488,11 +488,7 @@ select:focus, select:hover {
         align-items: center;
         margin-left: 0px;
     }
-    
-    .log img{
-        width: 150px;
-        height: 110px;
-    }
+
 
     .log svg{
         display: block;

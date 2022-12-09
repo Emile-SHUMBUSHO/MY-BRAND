@@ -2,6 +2,7 @@
     width: 100%;
     background-color: #F3F4F6;
 }
+
 .blogs{
     width: 100%;
     display: flex;
@@ -9,19 +10,19 @@
     align-items: center;
     padding: 50px 20px 20px 20px;
 }
+
 .blog-content{
     background-color: #FFFF;
     width: 400px;
-    height: 420px;
+    height: auto;
     border-radius: 8px;
     border: 1px solid rgb(197, 194, 194);
     margin: 10px;
     cursor: pointer;
-
 }
 
 .blog-content > img{
-    height: 150px;
+    height: 80%;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
 }
@@ -56,4 +57,24 @@
     color:black;
     font-size: 16px;
     padding: 20px 0 0 20px;
+}
+
+
+
+
+@media screen and (max-width: 480px) {
+    .blog-section{
+        width: 100%;
+    }
+    .blogs{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 50px 0px 20px 0px;
+    }
+    .blog-content{
+        width: 80%;
+    }
 }
