@@ -13,7 +13,7 @@ body{
     background-image: url("../images/banner.png");
     background-position: center;
     background-size: cover;
-    height: 105vh;
+    height: 110vh;
 }
 .navBar{
     display: flex;
@@ -453,20 +453,6 @@ select:focus, select:hover {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* 481 */
 @media screen and (max-width: 480px) {
     .main{
         width: 100%;
@@ -488,13 +474,10 @@ select:focus, select:hover {
         align-items: center;
         margin-left: 0px;
     }
-
-
     .log svg{
         display: block;
         cursor: pointer;
     }
-    
     .navigation{
         display: none;
         flex-direction: column;
