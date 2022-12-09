@@ -13,6 +13,7 @@
         <div class="navBar">
             <div class="log">
                 <a href="./index.html"><img src="./UI/images/logo.png" alt=""></a>
+                <svg onclick="toggleMenu" width="20px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path fill="#FFFF" d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg>
             </div>
             <div class="navigation">
                 <div class="menu">
@@ -35,7 +36,7 @@
         </div>
         <!-- About section -->
         <div class="welcome" id="about-me-section">
-            <div class="letConnectBtn">
+            <div class="welcomeButton">
                 <a href="">
                     Welcome To My Portfolio
                 </a>
@@ -53,20 +54,13 @@
             </div>
         </div>
         <!-- Let's connect-->
-        <div style="margin-left: 50px; margin-bottom: 50px;">
-            <a href="" style="text-decoration: none;
-            display: flex; justify-content: flex-start; align-items: center;
-            font-family: Arial;
-            font-weight: bold;
-            color: #FFFF;
-            transition: 0.4s ease-in-out;">
+        <div class="let-connect-section">
+            <div class="let-connect-section-content">
                 <span>Let's connect</span>
-                <div 
-                style="background-color: #fff; height: 35px; width: 35px;display: flex; justify-content: center; align-items: center; border-radius: 50px; margin-left: 10px;"
-                >
-                    <img src="./UI/images/arrow-right-solid.svg" alt="" style="width: 20px; height: 30px">
-                </div>
-            </a>
+                <a href="" style="text-decoration: none">
+                    <svg width="20px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg>
+                </a>
+            </div>
         </div>
         <!-- Skills section -->
         <div class="skills-section" id="skills-section">
@@ -174,11 +168,11 @@
         <!-- subscribe section -->
         <div class="subscribe-container">
             <div class="subscribe">
-                <p style="color:black; width: 350px;">
+                <p class="subscribe-intro">
                     Subscribe to my news latter
                     and never miss any updates
                 </p>
-                <div style="border: 3px solid #151515;border-radius: 8px; width: 450px; height: 40px; display: flex; justify-content: space-between; padding: 2px;">
+                <div class="subscribe-body">
                     <input type="text" name="email" placeholder="Email address" style="border: 0; margin-left: 10px;">
                     <input type="submit" value="Submit" style="width: 100px;background-color: #2C244D; border-radius: 10px; color: white">
                 </div>
@@ -199,12 +193,13 @@
                     <a href="https://www.linkedin.com/in/emile-shumbusho-349493195/">
                         <svg width="30px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path fill="#FFFF" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>                    </a>
                 </div>
-                <h5>CopyRight, 2022 All Rights Reserved</h5>
+                <h5 class="copyright">CopyRight, 2022 All Rights Reserved</h5>
             </div>
         </div>
     </div>
     <!-- Add javaScript to controll tabs -->
     <script>
+        // js for managing my work section tabs
         function openMyWork(evt, workName){
             var i, tabBtn;
             var x = document.getElementsByClassName("my-work-container");
@@ -218,6 +213,12 @@
                 tabBtn[i].className = tabBtn[i].className.replace("active", "");
             }
             evt.currentTarget.className += " active";
+        }
+
+        // js for managing navigation menu
+        let navigation = document.getElementsByClassName("navigation");
+        function toggleMenu(){
+            navigation.style.display = "block";
         }
     </script>
 </body>

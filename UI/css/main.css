@@ -15,20 +15,21 @@ body{
     background-size: cover;
     height: 105vh;
 }
-
 .navBar{
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-
 .log{
-    margin-left: 50px;
+    margin-left: 35px;
 }
-
 .log img{
     width: 150px;
     height: 110px;
+}
+
+.log svg{
+    display: none;
 }
 
 .navigation{
@@ -85,6 +86,22 @@ ul li a:hover{
     padding: 30px 0 30px 0;
 }
 
+.welcomeButton {
+    border-radius: 5px;
+    border: 1px solid #FFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.welcomeButton a{
+    text-decoration: none;
+    font-family: Arial;
+    color: #FFFF;
+    transition: 0.4s ease-in-out;
+}
+
 /* style for about me section */
 
 .content{
@@ -94,10 +111,11 @@ ul li a:hover{
 
 .leftSide{
     margin-left: 50px;
+    width: 100%;
 }
 
 .leftSide h1,p{
-    padding: 20px 0 20px 0;
+    padding: 50px 0 20px 0;
     color:#ffff;
 }
 
@@ -130,23 +148,48 @@ h5{
 
 p{
     font-family: 'Roboto';
-    font-size: 28px;
+    font-size: 32px;
 }
 
 .rightSide{
     margin-right: 50px;
+    width: 100%;
+
 }
 
 
 .rightSide img{
-    width: 500px;
+    width: 90%;
 }
 
-.letConnectBtnSection{
+/* let's connect section */
+
+.let-connect-section{
+    width: 100%;
+    margin-left: 0px;
+    margin-bottom: 50px;
+}
+
+.let-connect-section-content{
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    background-color: #C2E7FF;
+    margin-left: 50px;
+}
+
+.let-connect-section-content span {
+    color:#fff;
+}
+
+.let-connect-section-content a{
+    background-color: #fff;
+    height: 35px;
+    width: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    margin-left: 10px;
 }
 
 
@@ -266,6 +309,10 @@ p{
     margin: 20px;
 }
 
+.my-work-box img{
+    width: 90%;
+}
+
 /* style for contact me section */
 
 .contact-me-section{
@@ -337,6 +384,20 @@ select:focus, select:hover {
     border-radius: 20px;
 }
 
+.subscribe-intro{
+    color:black; 
+    width: 350px;
+}
+.subscribe-body{
+    border: 3px solid #151515;
+    border-radius: 8px; 
+    width: 450px; 
+    height: 40px; 
+    display: flex; 
+    justify-content: space-between; 
+    padding: 2px;
+}
+
 /* Style for footer section */
 .footer-section{
     display: flex;
@@ -375,5 +436,413 @@ select:focus, select:hover {
     border-radius: 50px;
     border: 2px solid #FFFF;
     background-color: #FFFF;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 481 */
+@media screen and (max-width: 480px) {
+    .main{
+        width: 100%;
+        background-image: none;
+        background-position: center;
+        background-size: cover;
+        height: 105vh;
+    }
+    .navBar{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .log{
+        width: 90%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-left: 0px;
+    }
+    
+    .log img{
+        width: 150px;
+        height: 110px;
+    }
+
+    .log svg{
+        display: block;
+        cursor: pointer;
+    }
+    
+    .navigation{
+        display: none;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        margin: 0px;
+        width: 100%;
+        padding-bottom: 20px;
+        background-color: blue;
+    }
+    
+    ul{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    ul li{
+        list-style: none;
+        font-size: 14px;
+        padding: 15px;
+    }
+    
+    ul li a{
+        text-decoration: none;
+        font-family: Arial;
+        font-weight: bold;
+        color: #FFFF;
+        transition: 0.4s ease-in-out;
+    }
+    
+    ul li a:hover{
+        color: #C2E7FF;
+    }
+    
+    .welcome{
+        display: flex;
+        justify-content: center;
+        margin-left: 0px;
+        width: 100%;
+    }
+
+    .welcomeButton {
+        width: 80%;
+        border-radius: 5px;
+        border: 1px solid #FFFF;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+    }
+
+    /* style for about me section */
+    .content{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .leftSide{
+        width: 85%;
+        margin-left: 0px;
+        align-items: center;
+    }
+
+    .leftSide h1,p{
+        padding: 20px 0 20px 0;
+        color:#ffff;
+    }
+    
+    
+    .rightSide{
+        width: 100%;
+        margin-right: 0px;
+    }
+    
+    .rightSide img{
+        width: 100%;
+    }
+
+    /* let's connect section */
+    .let-connect-section{
+        width: 100%;
+        margin-left: 0px;
+        margin-bottom: 10px;
+    }
+    .let-connect-section-content{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 0px;
+        padding-top: 10px;
+    }
+
+    /* style for skills section */
+    .skills-section{
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .skills-content{
+        width: 70%;
+        height: auto;
+        background-color: #070707;
+        border-radius: 25px;
+        border: 8px solid #2C244D;
+    }
+    
+    .intro-titles{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 20px;
+    }
+    
+    .skills-description{
+        font-size: 21px;
+        font-weight: 100;
+        text-align: center;
+    }
+    .skills-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    
+    }
+    .skills-box{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 20px;
+    }
+    .skills-radio-box{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        border: 18px solid #FFFF;
+        margin: 20px;
+    }
+    
+    /* My work section */
+    
+    .my-work-section{
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        background-color: #3F2435;
+    }
+    
+    .my-work-content{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .tabs{
+        overflow: hidden;
+        display: flex;
+        justify-content: space-around;
+        width: 60%;
+        border: 2px solid #ffff;
+        margin-bottom: 20px;
+        border-radius: 25px;
+    }
+    
+    .tabBtn{
+        width: 200px;
+        border: 0;
+        padding: 10px;
+        background-color: #3F2435;
+        color: #ffff;
+        font-size: 21px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    
+    .tabBtn:hover{
+        background-color: #2C244D;
+    }
+    
+    .tabs button.active{
+        background-color: #696672;
+    }
+    
+    .my-work-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .my-work-description{
+        font-size: 21px;
+        font-weight: 100;
+        width: 60%;
+        text-align: center;
+    }
+    
+    .my-work-box{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 20px;
+    }
+    
+    /* style for contact me section */
+    
+    .contact-me-section{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0px;
+        width: 100%;
+    }
+    .contact-me-left-side {
+        margin: 0px;
+        width: 70%;
+        padding: 20px 0 0 0;
+    }
+
+    .contact-me-left-side img{
+        width: 100%;
+    }
+    
+    .contact-me-right-side{
+        margin: 0px;
+        width: 90%;
+    }
+    form{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    form > input:focus, input:hover, 
+    textarea:focus, textarea:hover,
+    select:focus, select:hover {
+        outline: none !important;
+        border: none !important;
+        box-shadow: 0 0 15px 5px rgb(102, 101, 101) !important;
+    }
+    .input-box{
+        background-color: #2C244D;
+        border: 1px solid #FFFF;
+        border-radius: 5px;
+        margin: 5px;
+        padding: 10px;
+        color: #ffff;
+    
+    }
+    
+    #submit{
+        background-color: #2C244D;
+        border: 1px solid #FFFF;
+        border-radius: 5px;
+        margin: 5px;
+        padding: 10px;
+        color: #ffff;
+        font-weight: 500;
+        font-family: 'Roboto';
+        font-size: 18px;
+    
+    }
+    
+    /* Style for subscribe section */
+    .subscribe-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        top: 50px;
+        width: 100%;
+    }
+    .subscribe{
+        display: flex;
+        flex-direction: column;
+        gap: 0px;
+        width: 80%;
+        height: auto;
+        background-color: #ffff;
+        border: 5px solid #3F2435;
+        border-radius: 20px;
+    }
+
+    .subscribe-intro{
+        color:black; 
+        width: 80%;
+        font-size: 16px;
+    }
+    .subscribe-body{
+        border: 3px solid #151515;
+        border-radius: 8px; 
+        width: 80%; 
+        height: 40px; 
+        display: flex; 
+        justify-content: space-between; 
+        margin: 10px;
+    }
+    
+    /* Style for footer section */
+    .footer-section{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: auto;
+        background-color: #3F2435;
+    }
+    .footer-left-side{
+        margin-left: 0px;
+        margin-top: 120px;
+    }
+    .footer-right-side{
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items:center;
+        margin-right: 0px;
+        margin-top: 10px;
+    }
+    .icons{
+        display: flex;
+        gap: 10px;
+        margin-bottom: 30px;
+    }
+    .icon-container{
+        width: 40px;
+        height: 40px;
+        border-radius: 50px;
+        border: 2px solid #FFFF;
+        background-color: #FFFF;
+    }
+    .copyright{
+        margin: 10px;
+    }
 }
 
