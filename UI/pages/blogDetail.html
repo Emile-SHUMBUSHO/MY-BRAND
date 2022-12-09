@@ -10,62 +10,13 @@
     <script src="https://kit.fontawesome.com/e5fd39c970.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
-    <style>
-        .form-control{
-            width: 100%;
-            margin: 10px;
-            gap: 20px;
-        }
-        .form-control > textarea{
-            border-radius: 10px;
-            color: #fff;
-            padding: 10px;
-        }
-        .input-container{
-            gap: 10px;
-        }
-        .input-container > input{
-            height: 40px;
-            border-radius: 10px;
-            padding: 5px;
-            color: #ffff;
-        }
-        .submit-container{
-
-        }
-
-        .submit-container > input{
-            width: 400px;
-            height: 40px;
-            font-size: 14px;
-            background-color: black;
-            border-radius: 10px;
-            border: 1px solid #ffff;
-            color: #ffff;
-        }
-
-        .subscribe-input-container{
-            border: 3px solid #151515;
-            border-radius: 8px; 
-            width: 450px; 
-            height: 40px; 
-            display: flex; 
-            justify-content: space-between; 
-            padding: 2px;
-        }
-
-        .subscribe-email-address{
-            border: 0;
-            width: 90%;
-            margin-left: 20px;
-        }
-    </style>
 </head>
 <body>
     <div class="wrapper">
         <div class="navBar">
             <div class="log">
-                <a href="../../index.html"><img src="../images/logo.png" alt=""></a>
+                <a href="./index.html"><img src="../images/logo.png" alt=""></a>
+                <svg onclick="toggleMenu" width="20px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path fill="#FFFF" d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg>
             </div>
             <div class="navigation">
                 <div class="menu">
@@ -74,21 +25,22 @@
                         <li><a href="#about-me-section">About</a></li>
                         <li><a href="#skills-section">Skills</a></li>
                         <li><a href="#my-work-section">MyWork</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="../pages/login.html">Login</a></li>
+                        <li><a href="./UI/pages/blog.html">Blog</a></li>
+                        <li><a href="./UI/pages/login.html">Login</a></li>
                     </ul>
                 </div>
                 <div class="letConnectBtn">
-                    <a href="">
+                    <a href="#contact-me-section" style="margin: 2px;">
                         Let's connect
                     </a>
+                    <svg width="15px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path fill="white" d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg>
                 </div>
             </div>
         </div>
         <!-- Blog section -->
-        <div class="blog-detail-section">
-            <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 50px 0 0 0;">
-                <div style="background-color: #C2E7FF; width: 60%; height: 200px; border-radius: 10px;">
+        <div class="article-detail-section">
+            <div class="article-content">
+                <div class="article-details-card">
                     <div class="article-detail-header">
                         <h3>In this article</h3>
                         <svg width="20px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
@@ -169,20 +121,19 @@
                     </p>
                 </div>
             </div>
-            
         </div>
 
-        <div style="width: 100%; height: 400px; background-color:black; display: flex; justify-content: center;">
-            <div style="width: 60%; height: 100%; display: flex; flex-direction: column;">
+        <div class="comment-wrapper">
+            <div class="comment-content">
                 <h3 style="font-size: 16px; padding: 20px 0 0 10px;">Join The discussion</h3>
                 <form action="#" class="form-control">
                     <div class="input-container" style="display: flex;justify-content: space-between;">
-                        <input type="text" name="fullName" placeholder="Full Name*"  id="full-name" style="background-color: black; width: 500px;">
-                        <input type="text" name="email" placeholder="Email*" id="email" style="background-color: black; width: 500px;">
+                        <input class="input" type="text" name="fullName" placeholder="Full Name*"  id="full-name">
+                        <input class="input" type="text" name="email" placeholder="Email*" id="email">
                     </div>
-                    <textarea name="message" id="" cols="30" rows="10" placeholder="Message*" itemid="message" style="background-color: black;"></textarea>
-                    <div class="submit-container" style="display: flex; justify-content: space-between; align-items: center;">
-                        <input type="submit" value="Submit">
+                    <textarea name="message" id="comment" cols="30" rows="10" placeholder="Message*" itemid="message" style="background-color: black;"></textarea>
+                    <div class="submit-container">
+                        <input id="submit" type="submit" value="Submit">
                         <h5 style="color: #ffff;">Your email address will not be published, required fields are marked*</h5>
                     </div> 
                 </form>
@@ -191,12 +142,12 @@
         <!-- subscribe section -->
         <div class="subscribe-container">
             <div class="subscribe">
-                <p style="color: black; font-size:21px;font-family: 'Poppins'; font-weight: 200; width: 350px;">
+                <p class="subscribe-intro">
                     Subscribe to my news latter
                     and never miss any updates
                 </p>
-                <div class="subscribe-input-container">
-                    <input class="subscribe-email-address" type="text" name="email" placeholder="Email address">
+                <div class="subscribe-body">
+                    <input type="text" name="email" placeholder="Email address" style="border: 0; margin-left: 10px;">
                     <input type="submit" value="Submit" style="width: 100px;background-color: #2C244D; border-radius: 10px; color: white">
                 </div>
             </div>
