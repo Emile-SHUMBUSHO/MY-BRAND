@@ -24,21 +24,28 @@
     height: auto;
     background-color: #FFFF;
     border-radius: 15px;
+    padding: 20px;
 }
 
 .form-header{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 150px;
+    gap: 10px;
 }
 
 .form-header svg{
     width: 70px;
     height: 70px;
 }
-
+.success{
+    color: green;
+}
+.error{
+    color: red;
+}
 form{
     width: 100%;
     display: flex;
