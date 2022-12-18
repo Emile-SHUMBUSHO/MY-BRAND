@@ -286,6 +286,9 @@
                             <input type="text" name="description" placeholder="Description" id="description">
                         </div>
                         <div class="input-contol">
+                            <input type="file" id="img">
+                        </div>
+                        <div class="input-contol">
                             <textarea name="articleBody" id="articleBody" cols="30" rows="10" placeholder="Body"></textarea>
                         </div>
 
@@ -300,7 +303,6 @@
                     </div>
                 </div>
             </div>
-
             <!-- section for updating article -->
             <div class="update-article-modal">
                 <div id="" class="article-modal-card">
@@ -381,6 +383,7 @@
         function toggleMenu(){
             subMunu.classList.toggle("open-menu");
         }
+        
         // js for clear form data
         function clearData(){
             document.getElementById('create-article-form').reset()

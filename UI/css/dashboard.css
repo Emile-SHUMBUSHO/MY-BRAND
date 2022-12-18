@@ -131,6 +131,12 @@ button {
     gap: 10px;
 }
 
+.article-cover{
+    width: 20%;
+    height: 10%;
+    border-radius: 15px;
+}
+
 h3 p {
     font-family: 'Roboto', sans-serif;
 }
