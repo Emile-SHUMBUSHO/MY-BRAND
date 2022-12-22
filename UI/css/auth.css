@@ -20,7 +20,7 @@
 }
 
 .form-container{
-    width: 450px;
+    width: 25%;
     height: auto;
     background-color: #FFFF;
     border-radius: 15px;
@@ -40,52 +40,67 @@
     width: 70px;
     height: 70px;
 }
-.success{
-    color: green;
-}
-.error{
-    color: red;
-}
+
 form{
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-input:focus, input:hover, 
-textarea:focus, textarea:hover,
-select:focus, select:hover {
-    outline: none !important;
-    border: none !important;
-    box-shadow: 0 0 20px 5px rgb(214, 213, 213) !important;
+
+.input-control{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
 }
-.input-box{
+
+.input-control label{
+    padding: 10px 10px 10px 0;
+}
+
+.input-control input{
     background-color: #FFFF;
     border: 1px solid #A79E9E;
     border-radius: 10px;
     color: black;
     height: 50px;
-    margin: 0 20px 0 20px;
-    padding: 0 20px 0 20px;
+    padding: 0 10px 0 10px;
+}
+
+.input-control input:focus{
+    outline: 0;
+}
+
+.input-control.success input{
+    border-color: #09c372;
+}
+
+.input-control.error input{
+    border-color: #ff3860;
+}
+
+
+input:focus, input:hover, 
+textarea:focus, textarea:hover,
+select:focus, select:hover {
+    box-shadow: 0 0 20px 5px rgb(214, 213, 213) !important;
 }
 
 #submit{
     background-color: #2C244D;
     border: 1px solid #FFFF;
     border-radius: 10px;
-    margin: 5px;
-    padding: 10px;
     color: #ffff;
     font-weight: 500;
     font-family: 'Roboto';
     font-size: 18px;
-    margin: 20px 20px 0 20px;
     height: 50px;
-
+    margin-top: 10px;
 }
 
-.row{
-    margin: 10px 20px 10px 20px;
+form a{
+    text-align: center;
+    margin: 20px;
 }
 
 a ,h3{
@@ -94,6 +109,12 @@ a ,h3{
     font-weight: 200;
     color: #2C244D;
     transition: 0.4s ease-in-out;
+}
+
+@media screen and (max-width: 480px) {
+    .form-container{
+        width: 80%;
+    }
 }
 
 
