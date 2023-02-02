@@ -1,3 +1,7 @@
+/* Blog detail section */
+.wrapper{
+    width: 100%;
+}
 .blog-section{
     width: 100%;
     background-color: #F3F4F6;
@@ -26,17 +30,11 @@
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
 }
-
-/* Blog detail section */
-.wrapper{
-    width: 100%;
-}
 .article-detail-section{
     width: 100%;
     height: auto;
     background-color: #FFFF;
 }
-
 .article-content{
     width: 100%;
     display: flex;
@@ -45,7 +43,6 @@
     align-items: center;
     padding: 50px 0 0 0;
 }
-
 .article-details-card{
     background-color: #C2E7FF; 
     width: 60%; 
@@ -53,36 +50,55 @@
     border-radius: 10px;
 }
 
+#view-more{
+    font-size: 21px;
+    margin: 20px;
+}
+
+.article-content img{
+    width: 60%;
+    height: 300px;
+    border-radius: 10px;
+    margin-top: 40px;
+}
 .article-detail-header{
     width: 95%;
     display: flex;
     justify-content: space-between;
     padding: 20px;
 }
-
-.article-detail-header > h3{
-    color:black;
-    font-size: 18px;
-}
-
 .article-detail-body p{
     padding: 0 0 0 20px;
     color: black;
     font-size: 16px;
 }
-
-.article-detail-bottom h3{
-    color:black;
-    font-size: 16px;
-    padding: 20px 0 0 20px;
+.article-body{
+    width: 60%;
 }
-
+.article-author{
+    margin-top: 40px;
+    width: 60%;
+}
+.article-pragraphs{
+    color: black; 
+    font-size:24px; 
+    font-family: 'Poppins', 
+    sans-serif; 
+    font-weight: 300;
+    text-align:justify;
+}
+.article-titles{
+    color: black; 
+    font-size:21px;
+    font-family: 'Roboto', sans-serif;
+}
 .comment-wrapper{
     width: 100%; 
-    height: 400px; 
+    height: auto; 
     background-color:black; 
     display: flex; 
     justify-content: center;
+    padding: 0px;
 }
 
 .comment-content{
@@ -91,7 +107,10 @@
     display: flex; 
     flex-direction: column;
 }
-
+#join-discusion-title{
+    font-size: 36px; 
+    margin: 10px;
+}
 .input{
     height: 40px;
     border-radius: 10px;
@@ -100,13 +119,11 @@
     background-color: black; 
     width: 500px;
 }
-
 .submit-container{
     display: flex; 
     justify-content: space-between; 
     align-items: center;
 }
-
 .form-control{
     width: 100%;
     margin: 10px;
@@ -117,23 +134,20 @@
     color: #fff;
     padding: 10px;
 }
-
 .input-container{
     gap: 10px;
 }
-
 .input-container > input{
     height: 40px;
     border-radius: 10px;
     padding: 5px;
-    color: #ffff;
+    color: rgb(247, 244, 244);
 }
-
-.submit-container > input{
+#submit{
+    background-color: black;
     width: 400px;
     height: 40px;
-    font-size: 14px;
-    background-color: black;
+    font-size: 18px;
     border-radius: 10px;
     border: 1px solid #ffff;
     color: #ffff;
@@ -148,12 +162,19 @@
     justify-content: space-between; 
     padding: 2px;
 }
-
 .subscribe-email-address{
     border: 0;
     width: 90%;
     margin-left: 20px;
 }
+
+
+
+
+
+
+
+
 
 
 @media screen and (max-width: 480px) {
@@ -180,14 +201,33 @@
         justify-content: center;
         align-items: center;
     }
-
     .article-details-card{
         background-color: #C2E7FF; 
-        width: 70%; 
+        width: 90%; 
         height: auto;
         border-radius: 10px;
     }
 
+    #blog-banner{
+        width: 90%;
+        height: 180px;
+        border-radius: 10px;
+        margin-top: 0px;
+    }
+
+    .article-body{
+        width: 90%;
+    }
+    .article-author{
+        width: 90%;
+    }
+    .article-titles{
+        font-size:16px;
+    }
+    .article-pragraphs{
+        font-size:16px; 
+        text-align:justify;
+    }
     .article-detail-header{
         width: 95%;
         display: flex;
@@ -195,9 +235,9 @@
         padding: 5px;
     }
 
-    .article-detail-header > h3{
-        color:black;
-        font-size: 18px;
+    #in-this-article{
+        font-size: 14px;
+        margin: 5px;
     }
 
     .article-detail-body p{
@@ -205,9 +245,9 @@
         color: black;
         font-size: 14px;
     }
-    .article-detail-bottom h3{
-        font-size: 16px;
-        padding: 10px 0 0 20px;
+    #view-more{
+        font-size: 14px;
+        margin: 10px;
     }
     .article-content img{
         width: 30%; 
@@ -227,6 +267,10 @@
         height: auto; 
         display: flex; 
         flex-direction: column;
+    }
+    #join-discusion-title{
+        font-size: 14px;
+        padding: 10px;
     }
     .input-container{
         width: 100%;
@@ -258,20 +302,24 @@
         color: #ffff;
         background-color: black; 
     }
-
     #comment{
-        width: 90%;
+        width: 88%;
+        margin: 0px;
     }
-
     .submit-container{
         width: 100%;
         display: flex;
         flex-direction: column;
+        margin-bottom: 20px;
     }
     #submit{
-        width: 90%;
+        width: 91%;
+        font-size: 16px;
     }
-
+    .submit-container h5{
+        margin: 20px;
+        text-align: center;
+    }
     .subscribe-input-container{
         border: 3px solid #151515;
         border-radius: 8px; 
@@ -281,8 +329,6 @@
         justify-content: space-between; 
         padding: 2px;
     }
-
-
     .submit-container > input{
         width: 400px;
         height: 40px;
@@ -291,5 +337,9 @@
         border-radius: 10px;
         border: 1px solid #ffff;
         color: #ffff;
+    }
+    .subscribe-intro{
+        font-size:16px; 
+        text-align:justify;
     }
 }

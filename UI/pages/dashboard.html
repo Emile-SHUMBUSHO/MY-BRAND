@@ -5,16 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
     <link rel="stylesheet" href="../css/dashboard.css">
 </head>
 <body>
     <div class="wrapper">
         <div class="header">
             <div class="logo">
-                <img src="../images/logov2.png" alt="">
+                <img onclick="openSuccessPopUp()" src="../images/logov2.png" alt="">
             </div>
             <div class="profile">
-                <img onclick="toggleMenu()" src="../images/man.png" alt="" width="40px" height="40px">
+                <img onclick="toggleMenu()" src="../images/man.png" alt="">
                 <div id="subMenu" class="sub-menu-wrapper">
                     <div class="sub-menu">
                         <div class="user-info">
@@ -37,7 +38,7 @@
                             <p>Setting</p>
                             <span>></span>
                         </a>
-                        <a href="../../index.html" class="sub-menu-link">
+                        <a onclick="logOut()" class="sub-menu-link">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path fill="#5F6368" d="M160 96c17.7 0 32-14.3 32-32s-14.3-32-32-32H96C43 32 0 75 0 128V384c0 53 43 96 96 96h64c17.7 0 32-14.3 32-32s-14.3-32-32-32H96c-17.7 0-32-14.3-32-32l0-256c0-17.7 14.3-32 32-32h64zM504.5 273.4c4.8-4.5 7.5-10.8 7.5-17.4s-2.7-12.9-7.5-17.4l-144-136c-7-6.6-17.2-8.4-26-4.6s-14.5 12.5-14.5 22v72H192c-17.7 0-32 14.3-32 32l0 64c0 17.7 14.3 32 32 32H320v72c0 9.6 5.7 18.2 14.5 22s19 2 26-4.6l144-136z"/></svg>
                             <p>Logout</p>
                             <span>></span>
@@ -48,7 +49,7 @@
         </div>
         <div class="dashboard-wrapper">
             <div class="aside-bar-menu">
-                <button class="tabLink" onclick="openCard(event, 'article')">All articles</button>
+                <button class="tabLink active" onclick="openCard(event, 'article')">All articles</button>
                 <button class="tabLink" onclick="openCard(event, 'message')">Messages</button>
                 <button class="tabLink" onclick="openCard(event, 'profile')">Profile</button>
                 <button class="open-create-article-modal">Create article</button>
@@ -59,7 +60,7 @@
                     <div class="left">
                         <h3>All article</h3>
                         <div class="article-controller">
-                            <svg width="17px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path fill="#5F6368" d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z"/></svg>
+                            <svg onclick="updateArticle()" class="open-update-article-modal" width="17px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path fill="#5F6368" d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z"/></svg>
                             <svg width="15px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path fill="#5F6368" d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"/></svg>
                         </div>
                     </div>
@@ -68,90 +69,10 @@
                         <svg width="12px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path fill="#5F6368" d="M342.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L274.7 256 105.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg>
                     </div>
                 </div>
-                <div class="content-body">
-                    <div class="content-row">
-                        <input type="checkbox" value="Eric" name="article" class="article1" id="article1">
-                        <label for="article1">Eric</label>
-                        <h5>How to build Node Js REST API</h5>
-                        <p>In this tutorial we are going to build a blog powered by Node.js on the back end, Bootstrap on the front end......</p>
-                        <img src="../images/article-img.png" alt="">
-                        <h5>4:30 PM</h5>
-                    </div>
-                    <hr>
-                    <div class="content-row">
-                        <input type="checkbox" value="Eric" name="article" class="article1" id="article1">
-                        <label for="article1">Eric</label>
-                        <h5>How to build Node Js REST API</h5>
-                        <p>In this tutorial we are going to build a blog powered by Node.js on the back end, Bootstrap on the front end......</p>
-                        <img src="../images/article-img.png" alt="">
-                        <h5>4:30 PM</h5>
-                    </div>
-                    <hr>
-                    <div class="content-row">
-                        <input type="checkbox" value="Eric" name="article" class="article1" id="article1">
-                        <label for="article1">Eric</label>
-                        <h5>How to build Node Js REST API</h5>
-                        <p>In this tutorial we are going to build a blog powered by Node.js on the back end, Bootstrap on the front end......</p>
-                        <img src="../images/article-img.png" alt="">
-                        <h5>4:30 PM</h5>
-                    </div>
-                    <hr>
-                    <div class="content-row">
-                        <input type="checkbox" value="Eric" name="article" class="article1" id="article1">
-                        <label for="article1">Eric</label>
-                        <h5>How to build Node Js REST API</h5>
-                        <p>In this tutorial we are going to build a blog powered by Node.js on the back end, Bootstrap on the front end......</p>
-                        <img src="../images/article-img.png" alt="">
-                        <h5>4:30 PM</h5>
-                    </div>
-                    <hr>
-                    <div class="content-row">
-                        <input type="checkbox" value="Eric" name="article" class="article1" id="article1">
-                        <label for="article1">Eric</label>
-                        <h5>How to build Node Js REST API</h5>
-                        <p>In this tutorial we are going to build a blog powered by Node.js on the back end, Bootstrap on the front end......</p>
-                        <img src="../images/article-img.png" alt="">
-                        <h5>4:30 PM</h5>
-                    </div>
-                    <hr>
-                    <div class="content-row">
-                        <input type="checkbox" value="Eric" name="article" class="article1" id="article1">
-                        <label for="article1">Eric</label>
-                        <h5>How to build Node Js REST API</h5>
-                        <p>In this tutorial we are going to build a blog powered by Node.js on the back end, Bootstrap on the front end......</p>
-                        <img src="../images/article-img.png" alt="">
-                        <h5>4:30 PM</h5>
-                    </div>
-                    <hr>
-                    <div class="content-row">
-                        <input type="checkbox" value="Eric" name="article" class="article1" id="article1">
-                        <label for="article1">Eric</label>
-                        <h5>How to build Node Js REST API</h5>
-                        <p>In this tutorial we are going to build a blog powered by Node.js on the back end, Bootstrap on the front end......</p>
-                        <img src="../images/article-img.png" alt="">
-                        <h5>4:30 PM</h5>
-                    </div>
-                    <hr>
-                    <div class="content-row">
-                        <input type="checkbox" value="Eric" name="article" class="article1" id="article1">
-                        <label for="article1">Eric</label>
-                        <h5>How to build Node Js REST API</h5>
-                        <p>In this tutorial we are going to build a blog powered by Node.js on the back end, Bootstrap on the front end......</p>
-                        <img src="../images/article-img.png" alt="">
-                        <h5>4:30 PM</h5>
-                    </div>
-                    <hr>
-                    <div class="content-row">
-                        <input type="checkbox" value="Eric" name="article" class="article1" id="article1">
-                        <label for="article1">Eric</label>
-                        <h5>How to build Node Js REST API</h5>
-                        <p>In this tutorial we are going to build a blog powered by Node.js on the back end, Bootstrap on the front end......</p>
-                        <img src="../images/article-img.png" alt="">
-                        <h5>4:30 PM</h5>
-                    </div>
+                <div class="content-body" id="articleData">
+                    //render article here
                 </div>
             </div>
-
             <!-- Section for contents -->
             <div id="message" class="dashboard-content">
                 <div class="content-header">
@@ -166,87 +87,7 @@
                         <svg width="12px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path fill="#5F6368" d="M342.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L274.7 256 105.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg>
                     </div>
                 </div>
-                <div class="content-body">
-                    <div class="content-row">
-                        <input type="checkbox" value="Eric" name="article" class="article1" id="article1">
-                        <label for="article1">Eric</label>
-                        <h5>How to build Node Js REST API</h5>
-                        <p>In this tutorial we are going to build a blog powered by Node.js on the back end, Bootstrap on the front end......</p>
-                        <img src="../images/man.png" alt="" width="30px" height="30px">
-                        <h5>4:30 PM</h5>
-                    </div>
-                    <hr>
-                    <div class="content-row">
-                        <input type="checkbox" value="Eric" name="article" class="article1" id="article1">
-                        <label for="article1">Eric</label>
-                        <h5>How to build Node Js REST API</h5>
-                        <p>In this tutorial we are going to build a blog powered by Node.js on the back end, Bootstrap on the front end......</p>
-                        <img src="../images/man.png" alt="" width="30px" height="30px">
-                        <h5>4:30 PM</h5>
-                    </div>
-                    <hr>
-                    <div class="content-row">
-                        <input type="checkbox" value="Eric" name="article" class="article1" id="article1">
-                        <label for="article1">Eric</label>
-                        <h5>How to build Node Js REST API</h5>
-                        <p>In this tutorial we are going to build a blog powered by Node.js on the back end, Bootstrap on the front end......</p>
-                        <img src="../images/man.png" alt="" width="30px" height="30px">
-                        <h5>4:30 PM</h5>
-                    </div>
-                    <hr>
-                    <div class="content-row">
-                        <input type="checkbox" value="Eric" name="article" class="article1" id="article1">
-                        <label for="article1">Eric</label>
-                        <h5>How to build Node Js REST API</h5>
-                        <p>In this tutorial we are going to build a blog powered by Node.js on the back end, Bootstrap on the front end......</p>
-                        <img src="../images/man.png" alt="" width="30px" height="30px">
-                        <h5>4:30 PM</h5>
-                    </div>
-                    <hr>
-                    <div class="content-row">
-                        <input type="checkbox" value="Eric" name="article" class="article1" id="article1">
-                        <label for="article1">Eric</label>
-                        <h5>How to build Node Js REST API</h5>
-                        <p>In this tutorial we are going to build a blog powered by Node.js on the back end, Bootstrap on the front end......</p>
-                        <img src="../images/man.png" alt="" width="30px" height="30px">
-                        <h5>4:30 PM</h5>
-                    </div>
-                    <hr>
-                    <div class="content-row">
-                        <input type="checkbox" value="Eric" name="article" class="article1" id="article1">
-                        <label for="article1">Eric</label>
-                        <h5>How to build Node Js REST API</h5>
-                        <p>In this tutorial we are going to build a blog powered by Node.js on the back end, Bootstrap on the front end......</p>
-                        <img src="../images/man.png" alt="" width="30px" height="30px">
-                        <h5>4:30 PM</h5>
-                    </div>
-                    <hr>
-                    <div class="content-row">
-                        <input type="checkbox" value="Eric" name="article" class="article1" id="article1">
-                        <label for="article1">Eric</label>
-                        <h5>How to build Node Js REST API</h5>
-                        <p>In this tutorial we are going to build a blog powered by Node.js on the back end, Bootstrap on the front end......</p>
-                        <img src="../images/man.png" alt="" width="30px" height="30px">
-                        <h5>4:30 PM</h5>
-                    </div>
-                    <hr>
-                    <div class="content-row">
-                        <input type="checkbox" value="Eric" name="article" class="article1" id="article1">
-                        <label for="article1">Eric</label>
-                        <h5>How to build Node Js REST API</h5>
-                        <p>In this tutorial we are going to build a blog powered by Node.js on the back end, Bootstrap on the front end......</p>
-                        <img src="../images/man.png" alt="" width="30px" height="30px">
-                        <h5>4:30 PM</h5>
-                    </div>
-                    <hr>
-                    <div class="content-row">
-                        <input type="checkbox" value="Eric" name="article" class="article1" id="article1">
-                        <label for="article1">Eric</label>
-                        <h5>How to build Node Js REST API</h5>
-                        <p>In this tutorial we are going to build a blog powered by Node.js on the back end, Bootstrap on the front end......</p>
-                        <img src="../images/man.png" alt="" width="30px" height="30px">
-                        <h5>4:30 PM</h5>
-                    </div>
+                <div class="content-body" id="message-body">
                 </div>
             </div>
             <!-- Section for contents -->
@@ -268,71 +109,89 @@
         </div>
             <!-- section for creating article -->
             <div class="article-modal">
-                <div id="" class="create-modal-card">
+                <div id="" class="article-modal-card">
                     <div class="article-content-header">
                         <h3>Create new article</h3>
                         <svg class="close-create-article-modal" width="15px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path fill="#808289" d="M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z"/></svg>
                     </div>
                     <div class="article-content-body">
-                       <form action="" class="form-control">
+                       <form action="" class="form-control" id="create-article-form">
+                        <input type="hidden" name="id" id="id">
                         <div class="input-contol">
-                            <input type="text" name="title" placeholder="Title">
+                            <input type="text" name="title" placeholder="Title" id="title">
                         </div>
                         <div class="input-contol">
-                            <input type="text" name="description" placeholder="Description">
+                            <input type="text" name="description" placeholder="Description" id="description">
                         </div>
                         <div class="input-contol">
-                            <textarea name="articleBody" id="" cols="30" rows="10" placeholder="Body"></textarea>
+                            <input type="file" id="img">
+                        </div>
+                        <div class="input-contol">
+                            <textarea name="articleBody" id="articleBody" cols="30" rows="10" placeholder="Body"></textarea>
                         </div>
 
                         <div class="submit-contol">
-                            <input type="submit" value="Create article">
+                            <div class="submit-contol-container">
+                                <input type="submit" value="Create">
+                                <input type="submit" value="Reset" onclick="clearData()">
+                            </div>
                             <svg width="15px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path fill="#5F6368" d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"/></svg>
                         </div>
                        </form>
                     </div>
                 </div>
             </div>
+            <!-- section for updating article -->
+            <div class="update-article-modal">
+                <div id="" class="article-modal-card">
+                    <div class="article-content-header">
+                        <h3>Update an article</h3>
+                        <svg class="close-update-article-modal" width="15px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path fill="#808289" d="M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z"/></svg>
+                    </div>
+                    <div class="article-content-body">
+                        <form action="" class="form-control">
+                            <div class="input-contol">
+                                <input type="text" name="title" placeholder="Title">
+                            </div>
+                            <div class="input-contol">
+                                <input type="text" name="description" placeholder="Description">
+                            </div>
+                            <div class="input-contol">
+                                <textarea name="articleBody" id="" cols="30" rows="10" placeholder="Body"></textarea>
+                            </div>
+                            <div class="input-contol">
+                                <input type="file" name="image" placeholder="Description">
+                            </div>
+                            <div class="submit-contol">
+                                <input type="submit" value="Update article">
+                                <svg width="15px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path fill="#5F6368" d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"/></svg>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- success model -->
+            <!-- <div class="success-container"> -->
+                <div class="success-modal" id="successPopUp">
+                    <img src="../images/icon-check.webp" alt="">
+                    <h2>Thank you!!</h2>
+                    <p>Article updated successfully</p>
+                    <button onclick="closeSuccessPopUp()">Ok</button>
+                </div>
+            <!-- </div> -->
         </div>
     </div>
+    <script src="../js/auth.js"></script>
+    <script src="../js/createArticle.js"></script>
+    <script src="../js/renderArticle.js"></script>
+    <script src="../js/renderMessage.js"></script>
+    <script src="../js/deleteArticle.js"></script>
+    <script src="../js/updateArticle.js"></script>
+    <script src="../js/tabsController.js"></script>
+    <script src="../js/popUpsController.js"></script>
     <script>
-        // js for managing tabs
-        function openCard(evt, cardContent) {
-            var i, dashboardContent, tabs;
-            dashboardContent = document.getElementsByClassName("dashboard-content");
-            for( i = 0; i < dashboardContent.length; i++){
-                dashboardContent[i].style.display = "none";
-            }
-            document.getElementById(cardContent).style.display = "block";
-            tabs = document.getElementsByClassName("tabLink");
-            for( i = 0; i < tabs.length; i++){
-                tabs[i].className = tabs[i].className.replace(" active", "");
-            }
-            evt.currentTarget.className += " active";
-        }
-
-        // js for creating an article modal
-        var createArticleModel = document.querySelector(".article-modal");
-        var openCreateArticleModal = document.querySelector(".open-create-article-modal");
-        var closeCreateArticle = document.querySelector(".close-create-article-modal");
-        closeCreateArticle.addEventListener('click', closeCreateArticleModal);
-        window.addEventListener('click', outSideClickCreateArticleModal);
-        openCreateArticleModal.onclick = function(){
-            createArticleModel.style.display = "flex";
-        }
-        function closeCreateArticleModal (){
-            createArticleModel.style.display = "none";
-        }
-        function outSideClickCreateArticleModal (e){
-            if(e.target == createArticleModel){
-                createArticleModel.style.display = "none";
-            }
-        }
-        // js for toggle menu
-        let subMunu = document.getElementById("subMenu");
-        function toggleMenu(){
-            subMunu.classList.toggle("open-menu");
-        }
+        allArticle();
+        allMessage();
     </script>
 </body>
 </html>

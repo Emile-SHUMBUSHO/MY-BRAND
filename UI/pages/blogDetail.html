@@ -42,7 +42,7 @@
             <div class="article-content">
                 <div class="article-details-card">
                     <div class="article-detail-header">
-                        <h3>In this article</h3>
+                        <h3 class="article-titles" id="in-this-article">In this article</h3>
                         <svg width="20px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
                     </div>
                     <div class="article-detail-body">
@@ -61,39 +61,25 @@
                             </span>
                         </p>
                     </div>
-                    <div class="article-detail-bottom">
-                        <h3>View More</h3>
-                    </div>
+                    <h3 class="article-titles" id="view-more">View More</h3>
                 </div>
-                <img style="width: 60%; height: 300px; border-radius: 10px; padding: 30px 0 0 0;"  src="../images/b1.png" alt="">
-                <div style="width: 60%;">
-                    <p style="color: black; font-size:21px; font-family: 'Poppins', sans-serif; font-weight: 300">
+                <img id="blog-banner" src="../images/b1.png" alt="">
+                <div class="article-body">
+                    <p class="article-pragraphs">
                         Application Programming Interface (API) mania has spread throughout the globe. For scalability and reusability, it provides an interface that allows the interaction between two programs, which is crucial. For proprietary online applications or services, public APIs are becoming more frequent. Using this, other developers may simply incorporate features such as Social Media Login and Credit Card Debt Tracking with their own apps
                         Node.js development methodologies integrate flawlessly with the Representational State Transfer (REST) standard. A Node.js REST API makes perfect sense due to the high degree of compatibility.
                         I hope that after reading this essay, you'll grasp Node.js and readfile js in depth. Additionally, this post will walk you through the process of creating a secure Node.js REST API from the ground up. Learn more about the Rest API for Node.js by reading on. Or you can take an <span><a href="">advanced Node.js course</a></span>.
-                
+        
                         Prerequisites for Building Node.js REST API
                         Experience with JavaScript in a hands-on way.
                         Node.js has been installed on the system. Here is how?
                         Node.js may be uninstalled through the Windows Control Panel.
                         To accomplish this:
                     </p>
-                    <div>
-                        <h4 style="color: black; font-size:16px; font-family: 'Poppins', sans-serif; font-weight: 300"">
-                            . Apps may be found by clicking the Start button, then selecting Settings (gear icon).
-                        </h4>
-                        <h4 style="color: black; font-size:16px; font-family: 'Poppins', sans-serif; font-weight: 300"">
-                            . To highlight Node.js, scroll down and click on it.
-                        </h4>
-                        <h4 style="color: black; font-size:16px; font-family: 'Poppins', sans-serif; font-weight: 300"">
-                            . Select Uninstall from the drop-down menu. This starts the uninstaller's wizard.
-                        </h4>
-                    </div>
-                    <br>
-                    <h3 style="color: black; font-size:16px;font-family: 'Roboto', sans-serif;">
+                    <h3 class="article-titles">
                         What is the REST API in Node.js?
                     </h3>
-                    <p  style="color: black; font-size:21px; font-family: 'Poppins', sans-serif; font-weight: 300">
+                    <p class="article-pragraphs">
                         Based on the Representational State Transfer (REST) architectural style and communication strategy typically used in Web Services development, RESTful API is also known as a REST API or readfile js.
                         Other related technologies are often not favored over REST. The reason for this is REST requires less bandwidth, making it ideal for efficient Internet consumption. Programming languages like JavaScript and Python may also be used to create RESTful APIs.
                         Using the exception of Web APIs, REST is most usually utilized with HTTP as the transport protocol. REST APIs don't need the installation of any extra libraries or software on the part of developers.
@@ -102,7 +88,7 @@
                         Steps to Build REST API with Node.js
                     </p>
                 </div>
-                <div style="width: 60%">
+                <div class="article-author">
                     <hr>
                     <div style="width: 100%; display: flex; justify-content:space-between; padding: 20px 0 0 0;">
                         <div style="display: flex">
@@ -116,7 +102,7 @@
                             <svg width="25px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path fill="#2563EB" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
                         </a>
                     </div>
-                    <p style="color: black; font-size:21px; font-family: 'Poppins', sans-serif; font-weight: 300">
+                    <p class="article-pragraphs">
                         A content marketing analyst, Binod’s area of interest is EdTech, marketing analytics, and digital marketing. He is also a professional blogger and writes extensively on skill development. His hobbies include travelling, programming, and watching sitcoms.
                     </p>
                 </div>
@@ -125,7 +111,7 @@
 
         <div class="comment-wrapper">
             <div class="comment-content">
-                <h3 style="font-size: 16px; padding: 20px 0 0 10px;">Join The discussion</h3>
+                <h3 id="join-discusion-title">Join The discussion</h3>
                 <form action="#" class="form-control">
                     <div class="input-container" style="display: flex;justify-content: space-between;">
                         <input class="input" type="text" name="fullName" placeholder="Full Name*"  id="full-name">

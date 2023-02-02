@@ -9,7 +9,6 @@
     width: 100%;
     height: 100vh;
     background-color: #F6F8FC;
-
 }
 
 .header{
@@ -39,6 +38,8 @@
 }
 
 .profile > img{
+    width: 50px;
+    height: 50px;
     margin: 10px;
     cursor:progress;
 }
@@ -48,7 +49,6 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-
 }
 
 button {
@@ -72,7 +72,7 @@ button {
 
 .dashboard-content{
     width: 75%;
-    height: 550px;
+    height: 500px;
     background-color: #FFFF;
     border-radius: 15px;
     display: none;
@@ -85,8 +85,6 @@ button {
 .dashboard-wrapper > div {
     text-align: center;
   }
-
-
 
 .content-header{
     display: flex;
@@ -127,10 +125,23 @@ button {
 
 .content-row{
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cols{
+    display: flex;
     justify-content: flex-start;
     align-items: center;
-    margin: 10px;
-    gap: 10px;
+    width: 100%;
+    height: 50px;
+    padding: 5px;
+
+}
+
+.cols img{
+    width: 100%;
+    height: 100%;
 }
 
 h3 p {
@@ -151,9 +162,9 @@ h3 p {
     background-color:rgb(0, 0, 0, 0.5);
 }
 
-.create-modal-card{
+.article-modal-card{
     width: 75%;
-    height: 550px;
+    height: auto;
     background-color: #FFFF;
     border-radius: 15px;
 }
@@ -180,6 +191,20 @@ h3 p {
 
 .article-content-body{
     padding: 10px;
+}
+
+.update-article-modal{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height:100%;
+    width:100%;
+    overflow: auto;
+    background-color:rgb(0, 0, 0, 0.5);
 }
 
 .sub-menu-wrapper{
@@ -286,6 +311,7 @@ h3 p {
 
 .submit-contol{
     margin-top: 40px;
+    margin-bottom: 20px;
     padding: 10px;
     width: 100%;
     display: flex;
@@ -293,7 +319,7 @@ h3 p {
     align-items: center;
 }
 
-.submit-contol> input{
+.submit-contol-container> input{
     width: 200px;
     height: 40px;
     background-color: #C2E7FF;
@@ -302,4 +328,340 @@ h3 p {
     font-size: 16px;
     font-weight: bold;
     cursor: progress;
+}
+
+.success-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height:100vh;
+    width:100%;
+    overflow: auto;
+    background-color:rgb(0, 0, 0, 0.5);
+}
+
+.success-modal{
+    width: 400px;
+    background-color: #fff;
+    border-radius: 6px;
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, -50%)scale(0.1);
+    text-align: center;
+    padding: 0px 30px 30px;
+    color: #333;
+    visibility: hidden;
+    transition: transform 0.4s, top 0.4s;
+}
+
+.open-success-modal{
+    visibility:visible;
+    top: 50%;
+    transform: translate(-50%, -50%)scale(1);
+}
+
+.success-modal img{
+    width: 100px;
+    margin-top: -25px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 480px) {
+    .header{
+        flex-direction: column;
+        gap: 10px;
+    }
+    .logo{
+        width: 100%;
+    }
+    .profile{
+        width: 90%;
+        height: 60px;
+        background-color: #D3E3FD;
+        border-radius: 10px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    .dashboard-wrapper{
+        flex-direction: column;
+    }
+
+
+
+    .aside-bar-menu{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+    button {
+        width: 25%;
+        height: 40px;
+        border: 0;
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+        margin: 20px 0 0 0;
+        cursor: pointer;
+        overflow: hidden;
+        transition: 0.3;
+    }
+    .aside-bar-menu button:hover{
+        background-color: #D3E3FD;
+    }
+    .aside-bar-menu button.active{
+        background-color: #D3E3FD;
+    }
+    
+    .dashboard-content{
+        width: 100%;
+        height: 800px;
+        background-color: #FFFF;
+        border-radius: 15px;
+        display: none;
+    }
+
+    #article{
+        display: block;
+    }
+    
+    .content-header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 10%;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+        background-color: #D3E3FD;
+    }
+    
+    .left{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin: 10px;
+    }
+    
+    .right{
+        margin: 10px;
+    }
+    
+    .article-controller{
+        display: flex;
+        justify-content: space-evenly;
+        width: 100px;
+        height: 30px;
+        border-radius: 10px;
+        background-color: #FFFF;
+        margin: 0 0 0 15px;
+    }
+    
+    .content-body{
+        height: 90%;
+        overflow-y: scroll;
+    }
+    
+    .content-row{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin: 10px;
+        gap: 10px;
+    }
+    
+    h3 p {
+        font-family: 'Roboto', sans-serif;
+    }
+    
+    .article-modal{
+        display: none;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        height:100%;
+        width:100%;
+        overflow: auto;
+        background-color:rgb(0, 0, 0, 0.5);
+    }
+    
+    .create-modal-card{
+        width: 75%;
+        height: 550px;
+        background-color: #FFFF;
+        border-radius: 15px;
+    }
+    
+    .article-content-header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 10%;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        background-color: #C2E7FF;
+    }
+    
+    .article-content-header > h3{
+        margin: 10px;
+    }
+    
+    .article-content-header> svg{
+        margin: 10px;
+        cursor: progress;
+    }
+    
+    .article-content-body{
+        padding: 10px;
+    }
+    
+    .sub-menu-wrapper{
+        position: absolute;
+        top: 12%;
+        right: 5%;
+        width: 250px;
+        max-height: 0px;
+        overflow: hidden;
+        transition: max-height 0.5s;
+    }
+    
+    .sub-menu-wrapper.open-menu{
+        max-height: 400px;
+    }
+    
+    .sub-menu{
+        border-radius: 10px;
+        background-color: #ffff;
+        padding: 20px;
+        margin: 10px;
+        box-shadow: 0 0 15px 5px rgb(248, 246, 246);
+    }
+    
+    .sub-menu hr{
+        width: 100%;
+        height: 1px;
+        border: 0;
+        background-color: #ccc;
+        margin: 15px 0 10px;
+    }
+    
+    .user-info{
+        display: flex;
+        align-items: center;
+    }
+    
+    .user-info h3{
+        font-size: 16px;
+        font-weight: 600;
+    }
+    
+    .sub-menu-link{
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: #525252;
+        margin: 12px 0;
+    }
+    
+    .sub-menu-link > p{
+        width: 100%;
+    
+    }
+    
+    .sub-menu-link svg{
+        width: 40px;
+        background-color: #e5e5e5;
+        border-radius: 50%;
+        padding: 8px;
+        margin-right: 15px;
+    }
+    
+    .sub-menu-link span{
+        font-size: 16px;
+        transition: transform 0.5s;
+    }
+    
+    .sub-menu-link:hover span{
+        transform: translateX(5px);
+    }
+    
+    .sub-menu-link:hover p{
+        font-weight: 600;
+    }
+    
+    .form-control{
+        width: 100%;
+    }
+    
+    .input-contol{
+        padding: 10px;
+    }
+    
+    .input-contol input{
+        width: 100%;
+        height: 40px;
+        border: 0;
+        border-bottom: 2px solid #E4E5E9;
+        padding: 10px;
+    }
+    
+    .input-contol textarea{
+        padding: 10px;
+        width: 100%;
+        border: 0;
+        border-bottom: 2px solid #E4E5E9;
+    }
+    
+    .input-contol > input:focus, input:hover, textarea:focus, textarea:hover{
+        outline: none !important;
+        box-shadow: 0 0 15px 5px rgb(248, 246, 246) !important;
+    }
+    
+    .submit-contol{
+        margin-top: 40px;
+        padding: 10px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .submit-contol> input{
+        width: 200px;
+        height: 40px;
+        background-color: #C2E7FF;
+        border: 0;
+        border-radius: 20px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: progress;
+    }
 }
