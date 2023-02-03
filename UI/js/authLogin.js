@@ -1,17 +1,43 @@
-const form = document.getElementById("form");
-const email = document.getElementById("email");
-const password1 = document.getElementById("password1");
-let result = document.getElementById("result");
+const form = document.querySelector("form");
+eField = form.querySelector(".email");
+eInput = eField.querySelector("input");
+pField = form.querySelector(".password");
+pInput = pField.querySelector("input");
 
 form.addEventListener(`submit`, async (e) => {
   e.preventDefault();
-  validateInputs();
-  await fetch("https://shumbusho-emile.onrender.com/auth/login", {
+  if (eInput.value == "") {
+    eField.classList.add("shake", "error");
+  } else {
+    checkEmail();
+  }
+  if (pInput.value == "") {
+    pField.classList.add("shake", "error");
+  }
+  setTimeout(() => {
+    eField.classList.remove("shake");
+    pField.classList.remove("shake");
+  }, 5000);
+
+  eInput.onkeyup = () => {
+    checkEmail();
+  };
+
+  pInput.onkeyup = () => {
+    if (pInput.value == "") {
+      pField.classList.add("error");
+    } else {
+      pField.classList.remove("error");
+    }
+  };
+
+  if(!eField.classList.contains("error") && !pField.classList.contains("error")){
+    await fetch("https://shumbusho-emile.onrender.com/auth/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ email: email.value, password: password1.value }),
+    body: JSON.stringify({ email: eInput.value, password: pInput.value }),
   })
     .then((response) => {
       if (response.ok) {
@@ -24,68 +50,24 @@ form.addEventListener(`submit`, async (e) => {
     .catch((error) => {
       console.log(error);
     });
+  }
 });
 
-// form.onsubmit = async (e) => {
-//   let user = localStorage.getItem('userInfo');
-//   let data = JSON.parse(user);
-//   const emailValue = email.value.trim();
-//   const passwordValue = password1.value.trim();
-//   if(data == null){
-//       result.classList.add('error');
-//       result.innerHTML = 'user does not exist';
-//   }else if(emailValue == data.email && passwordValue == data.password1){
-//       result.classList.add('success');
-//       result.innerHTML = 'user logged in successfully';
-//   }else{
-//       result.classList.add('error');
-//       result.innerHTML = 'unauthorized user';
-//   }
-// };
-
-const isValidEmail = (email) => {
-  const rejex =
-    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  return rejex.test(String(email).toLowerCase());
-};
-
-const setError = (element, message) => {
-  const inputControl = element.parentElement;
-  const errorDisplay = inputControl.querySelector(".error");
-  errorDisplay.innerText = message;
-  inputControl.classList.add("error");
-  inputControl.classList.remove("success");
-};
-
-const setSuccess = (element) => {
-  const inputControl = element.parentElement;
-  const errorDisplay = inputControl.querySelector(".error");
-  errorDisplay.innerText = "";
-  inputControl.classList.add("success");
-  inputControl.classList.remove("error");
-};
-
-const validateInputs = () => {
-  const emailValue = email.value.trim();
-  const password1Value = password1.value.trim();
-  if (emailValue === "") {
-    setError(email, "Email must not be empty");
-  } else if (!isValidEmail(emailValue)) {
-    setError(email, "Invalid email");
+function checkEmail(){
+  let pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+  if (!eInput.value.match(pattern)) {
+    eField.classList.add("error");
+    let errorTxt = eField.querySelector(".error-txt");
+    eInput.value != ""
+      ? (errorTxt.innerText = "Enter a valid email address")
+      : (errorTxt.innerText = "Email can't be blank");
   } else {
-    setSuccess(email);
-  }
-
-  if (password1Value === "") {
-    setError(password1, "Password must not be empty");
-  } else if (password1Value.length < 8) {
-    setError(password1, "password must be at least 8 characters long");
-  } else {
-    setSuccess(password1);
+    eField.classList.remove("error");
   }
 };
 
-// function logOut(){
-//     localStorage.removeItem('userInfo');
-//     window.location = 'http://127.0.0.1:5500/UI/pages/login.html';
-// }
+
+
+
+
+
