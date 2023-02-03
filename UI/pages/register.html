@@ -1,44 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Register</title>
-    <link rel="stylesheet" href="../css/auth.css">
-    <script src="https://kit.fontawesome.com/e5fd39c970.js" crossorigin="anonymous"></script>
-    <script src="../js/auth.js"></script>
-</head>
-<body>
-    <div class="main">
-        <div class="container">
-            <div class="form-container">
-                <div class="form-header">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M399 384.2C376.9 345.8 335.4 320 288 320H224c-47.4 0-88.9 25.8-111 64.2c35.2 39.2 86.2 63.8 143 63.8s107.8-24.7 143-63.8zM512 256c0 141.4-114.6 256-256 256S0 397.4 0 256S114.6 0 256 0S512 114.6 512 256zM256 272c39.8 0 72-32.2 72-72s-32.2-72-72-72s-72 32.2-72 72s32.2 72 72 72z" fill="#2E2552"/></svg>
-                </div>
-                <form action="#" onsubmit="register()">
-                    <div class="row">
-                        <h3>User name*</h3>
-                    </div>
-                    <input type="text" name="userName" placeholder="name" class="input-box" id="userName" required="required">
-                    <div class="row">
-                        <h3>Email*</h3>
-                    </div>
-                    <input type="text" name="email" placeholder="Enter your email" class="input-box" id="email" required="required">
-                    <div class="row">
-                        <h3>Password*</h3>
-                    </div>
-                    <input type="password" name="password" placeholder="******" value="password" class="input-box" id="password1" required="required">
-                    <div class="row">
-                        <h3>Confirm Password*</h3>
-                    </div>
-                    <input type="password" name="password" placeholder="******" value="password" class="input-box" id="password2" required="required">
-                    <input type="submit" value="Register" id="submit">
-                    <div class="row" style="display: flex;justify-content: flex-end;"><a href="./login.html">Already have account?</a></div>
-                </form>
-            </div>
+    <link rel="stylesheet" href="../css/auth.css" />
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+  />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+          <!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+          <path
+            d="M399 384.2C376.9 345.8 335.4 320 288 320H224c-47.4 0-88.9 25.8-111 64.2c35.2 39.2 86.2 63.8 143 63.8s107.8-24.7 143-63.8zM512 256c0 141.4-114.6 256-256 256S0 397.4 0 256S114.6 0 256 0S512 114.6 512 256zM256 272c39.8 0 72-32.2 72-72s-32.2-72-72-72s-72 32.2-72 72s32.2 72 72 72z"
+            fill="#2E2552"
+          />
+        </svg>
+      </header>
+      <form id="form">
+        <div class="field userName">
+          <div class="input-area">
+            <input
+              type="text"
+              name="userName"
+              placeholder="User name"
+              id="userName"
+            />
+            <i class="icon fas fa-user"></i>
+            <i class="error error-icon fas fa-exclamation-circle"></i>
+          </div>
+          <div class="error error-txt">User name can't be blank</div>
         </div>
-    </div>
-</body>
-</html>
+        <div class="field email">
+          <div class="input-area">
+            <input
+              type="text"
+              name="email"
+              placeholder="Email address"
+              id="email"
+            />
+            <i class="icon fas fa-envelope"></i>
+            <i class="error error-icon fas fa-exclamation-circle"></i>
+          </div>
+          <div class="error error-txt">Email can't be blank</div>
+        </div>
 
+        <div class="field password">
+          <div class="input-area">
+            <input type="password" placeholder="Password" id="password" />
+            <i class="icon fas fa-lock"></i>
+            <i class="error error-icon fas fa-exclamation-circle"></i>
+          </div>
+          <div class="error error-txt">Password can't be blank</div>
+        </div>
+        <input type="submit" value="Register" id="submit" />
+        <div class="signup-link">
+          <a href="./login.html">Already have account?</a>
+        </div>
+      </form>
+    </div>
+    <script src="../js/authRegister.js"></script>
+  </body>
+</html>
