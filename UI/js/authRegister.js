@@ -1,104 +1,88 @@
-const form = document.getElementById("form");
-const userName = document.getElementById("userName");
-const email = document.getElementById("email");
-const password1 = document.getElementById("password1");
-const password2 = document.getElementById("password2");
-
-// form.onsubmit = (e) => {
-//     e.preventDefault();
-//     validateInputs();
-//     let user = {
-//         userName: userName.value.trim(),
-//         email: email.value.trim(),
-//         password1: password1.value.trim(),
-//         password2: password2.value.trim()
-//     }
-//     let jsonData = JSON.stringify(user);
-//     localStorage.setItem('userInfo', jsonData);
-// };
+const form = document.querySelector("form");
+uField = form.querySelector(".userName");
+uInput = form.querySelector("input");
+eField = form.querySelector(".email");
+eInput = eField.querySelector("input");
+pField = form.querySelector(".password");
+pInput = pField.querySelector("input");
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
-  validateInputs();
-  await fetch("https://shumbusho-emile.onrender.com/auth/signup", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      name: userName.value,
-      email: email.value,
-      password: password1.value,
-    }),
-  })
-    .then((response) => {
-      if (response.ok) {
-        window.location.href = "login.html";
-      } else {
-        console.log("user register failed", response);
-      }
+  if(uInput.value == ""){
+    uField.classList.add("shake", "error");
+  }
+  if (eInput.value == "") {
+    eField.classList.add("shake", "error");
+  } else {
+    checkEmail();
+  }
+  if (pInput.value == "") {
+    pField.classList.add("shake", "error");
+  }
+  setTimeout(() => {
+    uField.classList.remove("shake");
+    eField.classList.remove("shake");
+    pField.classList.remove("shake");
+  }, 5000);
+
+  uInput.onkeyup = () => {
+    if(uInput.value == ""){
+      uField.classList.add("error");
+    }else{
+      uField.classList.remove("error");
+    }
+  }
+
+  eInput.onkeyup = () => {
+    checkEmail();
+  };
+
+  pInput.onkeyup = () => {
+    if (pInput.value == "") {
+      pField.classList.add("error");
+    } else {
+      pField.classList.remove("error");
+    }
+  };
+
+  if (
+    !eField.classList.contains("error") &&
+    !pField.classList.contains("error")
+  ) {
+    await fetch("https://shumbusho-emile.onrender.com/auth/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: uInput.value,
+        email: eInput.value,
+        password: pInput.value,
+      }),
     })
-    .catch((error) => {
-      console.log(error);
-    });
+      .then((response) => {
+        if (response.ok) {
+          window.location.href = "login.html";
+        } else {
+          console.log("user register failed", response);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 });
 
-const isValidEmail = (email) => {
-  const rejex =
-    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  return rejex.test(String(email).toLowerCase());
-};
-
-const setError = (element, message) => {
-  const inputControl = element.parentElement;
-  const errorDisplay = inputControl.querySelector(".error");
-  errorDisplay.innerText = message;
-  inputControl.classList.add("error");
-  inputControl.classList.remove("success");
-};
-
-const setSuccess = (element) => {
-  const inputControl = element.parentElement;
-  const errorDisplay = inputControl.querySelector(".error");
-
-  errorDisplay.innerText = "";
-  inputControl.classList.add("success");
-  inputControl.classList.remove("error");
-};
-
-const validateInputs = () => {
-  const userNameValue = userName.value.trim();
-  const emailValue = email.value.trim();
-  const password1Value = password1.value.trim();
-  const password2Value = password2.value.trim();
-
-  if (userNameValue === "") {
-    setError(userName, "User name must not be empty");
+function checkEmail(){
+  let pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+  if (!eInput.value.match(pattern)) {
+    eField.classList.add("error");
+    let errorTxt = eField.querySelector(".error-txt");
+    eInput.value != ""
+      ? (errorTxt.innerText = "Enter a valid email address")
+      : (errorTxt.innerText = "Email can't be blank");
   } else {
-    setSuccess(userName);
-  }
-
-  if (emailValue === "") {
-    setError(email, "Email must not be empty");
-  } else if (!isValidEmail(emailValue)) {
-    setError(email, "Invalid email");
-  } else {
-    setSuccess(email);
-  }
-
-  if (password1Value === "") {
-    setError(password1, "Password must not be empty");
-  } else if (password1Value.length < 8) {
-    setError(password1, "password must be at least 8 characters long");
-  } else {
-    setSuccess(password1);
-  }
-
-  if (password2Value === "") {
-    setError(password2, "Confirm password must not be empty");
-  } else if (password1Value !== password1Value) {
-    setError(password2, "Password did not match");
-  } else {
-    setSuccess(password2);
+    eField.classList.remove("error");
   }
 };
+
