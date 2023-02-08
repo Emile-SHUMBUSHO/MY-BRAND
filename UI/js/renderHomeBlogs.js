@@ -11,6 +11,10 @@ function allArticle() {
   })
     .then((response) => response.json())
     .then((data) => {
+      if (data.lenght >= 3) {
+        console.log("hello data");
+        loadMoreBtn();
+      }
       localStorage.setItem("articleItem", JSON.stringify(data));
       data.slice(0, counter + 3).forEach((article) => {
         const date = new Date(article.date);
@@ -42,7 +46,9 @@ function allArticle() {
                   <p style="color:black; font-size: 16px;">${
                     article.blogBody.slice(0, 10) + "..."
                   }</p>
-                  <a href="../pages/blogDetail.html?id=${article._id}" style="color: #2563EB; text-decoration:none">Read More</a>
+                  <a href="../pages/blogDetail.html?id=${
+                    article._id
+                  }" style="color: #2563EB; text-decoration:none">Read More</a>
               </div>
               <hr style="margin: 10px;">
               <div style="display: flex; justify-content:space-between; align-items: center; padding:10px;">
@@ -60,3 +66,6 @@ function allArticle() {
 }
 
 document.getElementById("loadMoreBtn").addEventListener("click", allArticle);
+function loadMoreBtn() {
+  document.getElementById("loadMoreBtnWrapper").style.display = "flex";
+}

@@ -7,11 +7,11 @@
     <title>Blogs</title>
     <link rel="stylesheet" href="../css/blog.css" />
     <link rel="stylesheet" href="../css/main.css" />
-
     <script
       src="https://kit.fontawesome.com/e5fd39c970.js"
       crossorigin="anonymous"
     ></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
@@ -71,7 +71,7 @@
         </div>
           
       </div>
-      <div style="display: flex; justify-content: center; padding: 10px 0 50px 0">
+      <div id="loadMoreBtnWrapper" style="display: none; justify-content: center; padding: 10px 0 50px 0">
         <button
           id="loadMoreBtn"
           style="
@@ -194,6 +194,7 @@
         </div>
       </div>
     </div>
+    <script src="../js/scrollView.js"></script>
     <script src="../js/renderHomeBlogs.js"></script>
     <script>
       allArticle();

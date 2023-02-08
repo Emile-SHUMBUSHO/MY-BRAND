@@ -1,12 +1,4 @@
-$(window).scroll(function () {
-  if ($(this).scrollTop() > 10) {
-    $(".navBar").addClass("scrolled");
-  } else {
-    $(".navBar").removeClass("scrolled");
-  }
-});
-
- // js for managing my work section tabs
+// js for managing my work section tabs
  function openMyWork(evt, workName) {
   var i, tabBtn;
   var x = document.getElementsByClassName("my-work-container");
