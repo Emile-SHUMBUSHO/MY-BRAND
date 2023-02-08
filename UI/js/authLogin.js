@@ -4,8 +4,9 @@ eInput = eField.querySelector("input");
 pField = form.querySelector(".password");
 pInput = pField.querySelector("input");
 
-form.addEventListener(`submit`, async (e) => {
+form.addEventListener(`submit`, (e) => {
   e.preventDefault();
+  showLoading();
   if (eInput.value == "") {
     eField.classList.add("shake", "error");
   } else {
@@ -31,29 +32,43 @@ form.addEventListener(`submit`, async (e) => {
     }
   };
 
-  if(!eField.classList.contains("error") && !pField.classList.contains("error")){
-    await fetch("https://shumbusho-emile.onrender.com/auth/login", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ email: eInput.value, password: pInput.value }),
-  })
-    .then((response) => {
-      if (response.ok) {
-        console.log(response);
-        window.location.href = "dashboard.html";
-      } else {
-        console.error(response);
-      }
+  if (
+    !eField.classList.contains("error") &&
+    !pField.classList.contains("error")
+  ) {
+    fetch("https://shumbusho-emile.onrender.com/auth/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: eInput.value,
+        password: pInput.value,
+      }),
     })
-    .catch((error) => {
-      console.log(error);
-    });
+      .then((response) => response.json())
+      .then((data) => {
+        
+        if (data.message === "Invalid email or password") {
+          hideLoading();
+          createToast("error", "Invalid email or password");
+        } else {
+          localStorage.setItem("userInfo", JSON.stringify(data));
+          hideLoading();
+          createToast("success", "Logged in successfully");
+          setTimeout(() => {
+            window.location.href = "dashboard.html";
+          }, 2000);
+        }
+      })
+      .catch((err) => {
+        hideLoading();
+        console.log(err);
+      });
   }
 });
 
-function checkEmail(){
+function checkEmail() {
   let pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
   if (!eInput.value.match(pattern)) {
     eField.classList.add("error");
@@ -64,10 +79,4 @@ function checkEmail(){
   } else {
     eField.classList.remove("error");
   }
-};
-
-
-
-
-
-
+}
