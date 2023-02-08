@@ -132,4 +132,10 @@ form input[type="submit"]:hover{
     background: #2c52ed;
 }
 
+#loader {
+  font-size: 14px;
+  text-align: center;
+}
+
+
 

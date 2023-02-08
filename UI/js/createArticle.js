@@ -1,88 +1,101 @@
 // js for creating an article modal
 var createArticleModel = document.querySelector(".article-modal");
-var openCreateArticleModal = document.querySelector(".open-create-article-modal");
+var openCreateArticleModal = document.querySelector(
+  ".open-create-article-modal"
+);
 var closeCreateArticle = document.querySelector(".close-create-article-modal");
-var articleImg = document.getElementById('article-cover');
+var articleImg = document.getElementById("article-cover");
 
-closeCreateArticle.addEventListener('click', closeCreateArticleModal);
-window.addEventListener('click', outSideClickCreateArticleModal);
-openCreateArticleModal.onclick = function(){
-    createArticleModel.style.display = "flex";
+closeCreateArticle.addEventListener("click", closeCreateArticleModal);
+window.addEventListener("click", outSideClickCreateArticleModal);
+openCreateArticleModal.onclick = function () {
+  createArticleModel.style.display = "flex";
+};
+function closeCreateArticleModal() {
+  createArticleModel.style.display = "none";
 }
-function closeCreateArticleModal (){
+function outSideClickCreateArticleModal(e) {
+  if (e.target == createArticleModel) {
     createArticleModel.style.display = "none";
+  }
 }
-function outSideClickCreateArticleModal (e){
-    if(e.target == createArticleModel){
-        createArticleModel.style.display = "none";
+
+const form = document.getElementById("create-article-form");
+const title = document.getElementById("title");
+const description = document.getElementById("description");
+const blogBody = document.getElementById("articleBody");
+
+const firebaseConfig = {
+  apiKey: "AIzaSyA-aV1-Zx8h3J88pVAgKMWoTqmlZ5kjInE",
+  authDomain: "capstone-4866e.firebaseapp.com",
+  projectId: "capstone-4866e",
+  storageBucket: "capstone-4866e.appspot.com",
+  messagingSenderId: "1086595721569",
+  appId: "1:1086595721569:web:d19f63924ba5ede0d83d20",
+  measurementId: "G-M08R2TT062",
+};
+
+firebase.initializeApp(firebaseConfig);
+
+const storage = firebase.storage();
+const storageRef = storage.ref();
+
+// js for upload article image
+const blogImageInput = document.getElementById("create-blog-image");
+blogImageInput.addEventListener("change", (event) => {
+  const file = event.target.files[0];
+  if (!file) {
+    return;
+  }
+  const fileRef = storageRef.child(file.name);
+  const uploadTask = fileRef.put(file);
+  uploadTask.on(
+    "state_changed",
+    function (snapshot) {
+      // Handle progress changes
+    },
+    function (error) {
+      console.error(error);
+    },
+    function () {
+      // Handle successful uploads
+      uploadTask.snapshot.ref.getDownloadURL().then(function (downloadURL) {
+        localStorage.setItem("blogImage", downloadURL);
+      });
     }
-}
+  );
+});
 
- // js for upload article image
- const input = document.getElementById('img');
- var articleCover = [];
- console.log(articleCover);
- input.addEventListener('change', (event) => {
-     const image = event.target.files[0];
- 
-     const reader = new FileReader();
-
-     reader.readAsDataURL(image);
- 
-     reader.addEventListener('load', () => {
-        articleCover.push(reader.result);
-        //  console.log(reader.result);
-        //  localStorage.setItem('thumbnail', reader.result);
-     });
- });
-
-//method to save article into localstorage
-function create(){
-    //get article from localstorage and store to articlelist array
-    //we must to use JSON.parse, because article as string, we need convert to array
-    articleList = JSON.parse(localStorage.getItem('articleItem')) ?? []
-
-    //get last array to get last id
-    //and store it into variable id
-    var id
-    articleList.length != 0 ? articleList.findLast((item) => id = item.id) : id = 0
-
-    if(document.getElementById('id').value){
-        //edit articletlist array based on value
-        articleList.forEach(value => {
-            if(document.getElementById('id').value == value.id){
-                value.title     = document.getElementById('title').value, 
-                value.description       = document.getElementById('description').value,
-                value.articleImage       = articleCover[0],
-                value.articleBody   = document.getElementById('articleBody').value
-            }
-        });
-
-        //remove hidden input
-        document.getElementById('id').value = ''
-
-    }else{
-        
-        //save
-        //get data from form
-        var item = {
-            id        : id + 1, 
-            title      : document.getElementById('title').value, 
-            description       : document.getElementById('description').value,
-            articleImage       : articleCover[0], 
-            articleBody   : document.getElementById('articleBody').value
-        }
-
-        //add item data to array articlelist
-        articleList.push(item);
-    }
-
-    // save array into localstorage
-    localStorage.setItem('articleItem', JSON.stringify(articleList))
-
-    //update table list
-    allArticle()
-
-    //remove form data
-    document.getElementById('create-article-form').reset()
-}
+form.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  console.log(localStorage.getItem("blogImage"));
+  let userInfo = JSON.parse(localStorage.getItem("userInfo"));
+  const url = "https://shumbusho-emile.onrender.com/blogs/createBlog";
+  const body = {
+    title: title.value,
+    description: description.value,
+    blogBody: blogBody.value,
+    imageUrl: localStorage.getItem("blogImage"),
+  };
+  fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${userInfo.user.token}`,
+    },
+    body: JSON.stringify(body),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.message) {
+        console.log(data);
+        createToast("success", data.message);
+      } else {
+        const error = data.errorMsg.join("");
+        createToast("error", error);
+      }
+    })
+    .catch((error) => {
+      console.error("There was a problem with the fetch operation:", error);
+    });
+});

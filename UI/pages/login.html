@@ -6,12 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
     <link rel="stylesheet" href="../css/auth.css" />
+    <link rel="stylesheet" href="../css/toaster.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
     />
   </head>
   <body>
+    <ul class="notifications"></ul>
     <div class="wrapper">
       <header>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -47,9 +49,14 @@
         </div>
         <div class="pass-link"><a href="">Forgot Password?</a></div>
         <input type="submit" value="Login" id="submit" />
-        <div class="signup-link"><a href="./register.html">Don't have account?</a></div>
+        <div id="loader" style="display: none">Loading...</div>
+        <div class="signup-link">
+          <a href="./register.html">Don't have account?</a>
+        </div>
       </form>
     </div>
+    <script src="../js/loader.js"></script>
+    <script src="../js/toast.js"></script>
     <script src="../js/authLogin.js"></script>
   </body>
 </html>

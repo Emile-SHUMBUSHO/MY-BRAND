@@ -5,7 +5,7 @@
 }
 
 body{
-    background-color: #2C244D;
+    background-color: #0d1b2a;
 }
 
 .loading-indicator {
@@ -37,7 +37,20 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: transparent;
+    color: #fff;
+    z-index: 1;
+    transition: background-color 0.5s ease;
 }
+
+.scrolled {
+    background-color: #0d1b2a;
+}
+
 .log{
     margin-left: 35px;
 }
@@ -101,7 +114,8 @@ ul li a:hover{
 .welcome{
     margin-left: 50px;
     width: 200px;
-    padding: 30px 0 30px 0;
+    padding: 10px 0 30px 0;
+    margin-top: 150px;
 }
 
 .welcomeButton {
@@ -273,27 +287,44 @@ p{
     justify-content: center;
     align-items: center;
 }
-
-.tabs{
-    overflow: hidden;
-    display: flex;
-    justify-content: space-around;
-    width: 60%;
-    border: 2px solid #ffff;
-    margin-bottom: 20px;
+  
+  .tabs {
     border-radius: 25px;
-}
-
-.tabBtn{
-    width: 200px;
-    border: 0;
-    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+    overflow: hidden;
+    margin-bottom: 20px;
+    border: 2px solid #ffff;
+  }
+  
+  .tabBtn {
     background-color: #3F2435;
+    border: 0;
     color: #ffff;
-    font-size: 21px;
     cursor: pointer;
+    font-size: 21px;
+    padding: 10px;
     transition: 0.3s;
-}
+    width: 200px;
+  }
+  
+  .tabBtn:first-child{
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+  }
+  
+  .tabBtn:last-child{
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+  }
+  
+  .tabBtn:not(:first-child):not(:last-child){
+    border-radius: 0;
+  }
+  
+  
+  
 
 .tabBtn:hover{
     background-color: #2C244D;
@@ -498,15 +529,6 @@ form{
     border: 2px solid #FFFF;
     background-color: #FFFF;
 }
-
-
-
-
-
-
-
-
-
 
 
 
