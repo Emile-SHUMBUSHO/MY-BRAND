@@ -41,7 +41,7 @@
     width: 50px;
     height: 50px;
     margin: 10px;
-    cursor:progress;
+    cursor:pointer;
 }
 
 .aside-bar-menu{
@@ -327,7 +327,7 @@ h3 p {
     border-radius: 20px;
     font-size: 16px;
     font-weight: bold;
-    cursor: progress;
+    cursor: pointer;
 }
 
 .success-container{
@@ -593,6 +593,7 @@ h3 p {
     
     .sub-menu-link > p{
         width: 100%;
+        
     
     }
     
@@ -602,11 +603,13 @@ h3 p {
         border-radius: 50%;
         padding: 8px;
         margin-right: 15px;
+        
     }
     
     .sub-menu-link span{
         font-size: 16px;
         transition: transform 0.5s;
+        cursor: pointer;
     }
     
     .sub-menu-link:hover span{
