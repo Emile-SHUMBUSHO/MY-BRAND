@@ -4,7 +4,7 @@ function deleteArticle(id){
       method: "DELETE",
       headers: {
         "Content-type": "application/json",
-        Authorization: `Bearer ${userInfo.user.token}`,
+        Authorization: `Bearer ${userInfo.token}`,
       },
     })
       .then((response) => response.json())

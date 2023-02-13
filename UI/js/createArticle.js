@@ -21,9 +21,9 @@ function outSideClickCreateArticleModal(e) {
 }
 
 const form = document.getElementById("create-article-form");
-const title = document.getElementById("title");
-const description = document.getElementById("description");
-const blogBody = document.getElementById("articleBody");
+const title = document.getElementById("ctitle");
+const description = document.getElementById("cdescription");
+const blogBody = document.getElementById("carticleBody");
 
 const firebaseConfig = {
   apiKey: "AIzaSyA-aV1-Zx8h3J88pVAgKMWoTqmlZ5kjInE",
@@ -68,20 +68,20 @@ blogImageInput.addEventListener("change", (event) => {
 
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
-  console.log(localStorage.getItem("blogImage"));
   let userInfo = JSON.parse(localStorage.getItem("userInfo"));
-  const url = "https://shumbusho-emile.onrender.com/blogs/createBlog";
+  const hostedUrl = "https://shumbusho-emile.onrender.com/blogs/createBlog";
+  const localUrl = "http://localhost:8080/blogs/createBlog"
   const body = {
     title: title.value,
     description: description.value,
     blogBody: blogBody.value,
     imageUrl: localStorage.getItem("blogImage"),
   };
-  fetch(url, {
+  fetch(hostedUrl, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${userInfo.user.token}`,
+      Authorization: `Bearer ${userInfo.token}`,
     },
     body: JSON.stringify(body),
   })

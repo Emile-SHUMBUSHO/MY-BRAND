@@ -12,8 +12,7 @@ function singleBlog() {
   })
     .then((response) => response.json())
     .then((data) => {
-        
-      console.log(data);
+      localStorage.setItem("blogId", JSON.stringify(data.data._id));
       div.innerHTML += `
       <div class="article-content">
       <div class="article-details-card">
@@ -43,10 +42,10 @@ function singleBlog() {
         </div>
         <h3 class="article-titles" id="view-more">View More</h3>
       </div>
-      <img id="blog-banner" src="${data.imageUrl}" alt="" />
+      <img id="blog-banner" src="${data.data.imageUrl}" alt="" />
       <div class="article-body">
         <p class="article-pragraphs">
-          ${data.blogBody}
+          ${data.data.blogBody}
         </p>
       </div>
       <div class="article-author">
@@ -73,7 +72,7 @@ function singleBlog() {
             <div
               style="display: flex; flex-direction: column; margin: 10px"
             >
-              <h3 style="color: black; font-size: 16px">NSHUTI Eric</h3>
+              <h3 style="color: black; font-size: 16px">${data.data.author}</h3>
               <span>Blog Author</span>
             </div>
           </div>
