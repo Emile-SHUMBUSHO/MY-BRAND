@@ -49,7 +49,7 @@
         </div>
         <div class="dashboard-wrapper">
             <div class="aside-bar-menu">
-                <button class="tabLink active" onclick="openCard(event, 'article')">All articles</button>
+                <button class="tabLink active" onclick="openCard(event, 'article')">Articles</button>
                 <button class="tabLink" onclick="openCard(event, 'message')">Messages</button>
                 <button class="tabLink" onclick="openCard(event, 'profile')">Profile</button>
                 <button class="open-create-article-modal">Create article</button>
@@ -58,11 +58,7 @@
             <div id="article" class="dashboard-content">
                 <div class="content-header">
                     <div class="left">
-                        <h3>All article</h3>
-                        <div class="article-controller">
-                            <svg onclick="updateArticle()" class="open-update-article-modal" width="17px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path fill="#5F6368" d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z"/></svg>
-                            <svg width="15px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path fill="#5F6368" d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"/></svg>
-                        </div>
+                        <h3>Articles</h3>
                     </div>
                     <div class="right">
                         <svg width="12px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path fill="#5F6368" d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 278.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/></svg>
@@ -78,9 +74,6 @@
                 <div class="content-header">
                     <div class="left">
                         <h3>Messages</h3>
-                        <div class="article-controller">
-                            <svg width="15px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path fill="#5F6368" d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"/></svg>
-                        </div>
                     </div>
                     <div class="right">
                         <svg width="12px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path fill="#5F6368" d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 278.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/></svg>
@@ -95,8 +88,6 @@
                 <div class="content-header">
                     <div class="left">
                         <h3>Profile</h3>
-                        <div class="article-controller">
-                        </div>
                     </div>
                     <div class="right">
                         <svg width="12px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path fill="#5F6368" d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 278.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/></svg>
@@ -104,6 +95,71 @@
                     </div>
                 </div>
                 <div class="content-body">
+                    <div class="profile-content-body">
+                        <div id="bio" class="profile-card">
+                            <div class="p-header">
+                                <h3>Bio</h3>
+                            </div>
+                            <div class="p-body">
+                                <p>Being a software developer, takes time to learn, develop, solving diffent programs and cooperate with others in order to improve and keep thriving in this environment. As a developer I try to improve my self throught learning, here I have enumerated some of the most skills I have acquired in this environment.
+                                </p>
+                            </div>
+                            <div class="p-bottom">
+                                <div class="p-submit">
+                                    <input type="submit" value="Update">
+                                </div>
+                            </div>
+                        </div>
+                        <div id="skills" class="profile-card">
+                            <div class="p-header">
+                                <h3>skills</h3>
+                            </div>
+                            <div class="p-body">
+                                <div style="display: flex;align-items: center;justify-content: center;">
+                                    <h5>Back-End:</h5>
+                                    <div class="input-contol">
+                                        <input type="text" name="title" placeholder="55%" id="title">
+                                    </div>
+                                </div>
+                                <div style="display: flex;align-items: center;justify-content: center;">
+                                    <h5>Front-End:</h5>
+                                    <div class="input-contol">
+                                        <input type="text" name="title" placeholder="65%" id="title">
+                                    </div>
+                                </div>
+                                <div style="display: flex;align-items: center;justify-content: center;">
+                                    <h5>UI/UX:</h5>
+                                    <div class="input-contol">
+                                        <input type="text" name="title" placeholder="78%" id="title">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-bottom">
+                                <div class="p-submit">
+                                    <input type="submit" value="Update">
+                                </div>
+                            </div>
+                        </div>
+                        <div id="manage-credentials" class="profile-card">
+                            <div class="p-header">
+                                <h3>Change password</h3>
+                            </div>
+                            <div class="p-body">
+                                <div class="input-contol">
+                                    <input type="text" name="title" placeholder="Old password" id="title">
+                                </div>
+                                <div class="input-contol">
+                                    <input type="text" name="title" placeholder="New password" id="title">
+                                </div>
+                            </div>
+                            <div class="p-bottom">
+                                <div class="p-submit">
+                                    <input type="submit" value="Update">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -119,16 +175,16 @@
                        <form action="" class="form-control" id="create-article-form">
                         <input type="hidden" name="id" id="id">
                         <div class="input-contol">
-                            <input type="text" name="title" placeholder="Title" id="title">
+                            <input type="text" name="title" placeholder="Title" id="ctitle">
                         </div>
                         <div class="input-contol">
-                            <input type="text" name="description" placeholder="Description" id="description">
+                            <input type="text" name="description" placeholder="Description" id="cdescription">
                         </div>
                         <div class="input-contol">
                             <input type="file" id="create-blog-image">
                         </div>
                         <div class="input-contol">
-                            <textarea name="articleBody" id="articleBody" cols="30" rows="10" placeholder="Body"></textarea>
+                            <textarea name="articleBody" id="carticleBody" cols="30" rows="10" placeholder="Body"></textarea>
                         </div>
 
                         <div class="submit-contol">
@@ -161,7 +217,7 @@
                                 <textarea name="articleBody" id="u-articleBody" cols="30" rows="10" placeholder="Body"></textarea>
                             </div>
                             <div class="input-contol">
-                                <input type="file" name="image" placeholder="Description">
+                                <input type="file" name="image" id="update-blog-image" placeholder="Description">
                             </div>
                             <div class="submit-contol">
                                 <input type="submit" value="Update article">

@@ -11,7 +11,7 @@ function allArticle() {
     .then((response) => response.json())
     .then((data) => {
       localStorage.setItem("articleItem", JSON.stringify(data));
-      data.forEach((article) => {
+      data.data.forEach((article) => {
         const date = new Date(article.date);
         const options = {
           year: "numeric",

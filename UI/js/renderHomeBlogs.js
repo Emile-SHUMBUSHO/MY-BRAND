@@ -12,11 +12,10 @@ function allArticle() {
     .then((response) => response.json())
     .then((data) => {
       if (data.lenght >= 3) {
-        console.log("hello data");
         loadMoreBtn();
       }
       localStorage.setItem("articleItem", JSON.stringify(data));
-      data.slice(0, counter + 3).forEach((article) => {
+      data.data.slice(0, counter + 3).forEach((article) => {
         const date = new Date(article.date);
         const options = {
           year: "numeric",
@@ -52,7 +51,7 @@ function allArticle() {
               </div>
               <hr style="margin: 10px;">
               <div style="display: flex; justify-content:space-between; align-items: center; padding:10px;">
-                  <h5>By<Span style="margin: 10px; color: #2563EB">Christian</Span></h5>
+                  <h5>By<Span style="margin: 10px; color: #2563EB">${article.author}</Span></h5>
                   <span>${formattedDate}</span>
               </div>
           </div>
@@ -66,6 +65,6 @@ function allArticle() {
 }
 
 document.getElementById("loadMoreBtn").addEventListener("click", allArticle);
-function loadMoreBtn() {
-  document.getElementById("loadMoreBtnWrapper").style.display = "flex";
-}
+// function loadMoreBtn() {
+//   document.getElementById("loadMoreBtnWrapper").style.display = "flex";
+// }
