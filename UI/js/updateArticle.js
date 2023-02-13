@@ -18,7 +18,7 @@ function outSideClickUpdateArticleModal(e) {
 function updateArticle(id) {
   //we must to use JSON.parse, because data as string, we need convert to array
   articleItem = JSON.parse(localStorage.getItem("articleItem")) ?? [];
-  articleItem.forEach(function (value) {
+  articleItem.data.forEach(function (value) {
     if (value._id == id) {
       (document.getElementById("uid").value = value._id),
         (document.getElementById("u-title").value = value.title),
@@ -31,29 +31,59 @@ function updateArticle(id) {
   const title = document.getElementById("u-title");
   const description = document.getElementById("u-description");
   const blogBody = document.getElementById("u-articleBody");
-  console.log(title.value, description.value, blogBody.value);
+
+  // js for upload article image
+  const blogImageInput = document.getElementById("update-blog-image");
+  blogImageInput.addEventListener("change", (event) => {
+    const file = event.target.files[0];
+    if (!file) {
+      return;
+    }
+    const fileRef = storageRef.child(file.name);
+    const uploadTask = fileRef.put(file);
+    uploadTask.on(
+      "state_changed",
+      function (snapshot) {
+        // Handle progress changes
+      },
+      function (error) {
+        console.error(error);
+      },
+      function () {
+        // Handle successful uploads
+        uploadTask.snapshot.ref.getDownloadURL().then(function (downloadURL) {
+          localStorage.setItem("updateBlogImage", downloadURL);
+        });
+      }
+    );
+  });
+
   form.addEventListener("submit", (event) => {
     event.preventDefault();
     const body = {
       title: title.value,
       description: description.value,
       blogBody: blogBody.value,
-      imageUrl:
-        "https://imgs.search.brave.com/feANRSdW-1g7FnPUhtB5JPmSlRivB5JXbjL7fmXHWOM/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly95b3Vy/c2VydmVyYWRtaW4u/Y29tL3dwLWNvbnRl/bnQvdXBsb2Fkcy8y/MDE4LzA0L25vZGUu/anBn",
+      imageUrl: localStorage.getItem("updateBlogImage"),
     };
 
+    console.log(body.imageUrl)
+
     let userInfo = JSON.parse(localStorage.getItem("userInfo"));
-    fetch(`https://shumbusho-emile.onrender.com/blogs/update/${id}`, {
+    const hostedUrl = "https://shumbusho-emile.onrender.com/blogs/update";
+    const localUrl = "http://localhost:8080/blogs/update";
+    fetch(`${hostedUrl}/${id}`, {
       method: "PUT",
       headers: {
         "Content-type": "application/json",
-        Authorization: `Bearer ${userInfo.user.token}`,
+        Authorization: `Bearer ${userInfo.token}`,
       },
       body: JSON.stringify(body),
     })
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
+        form.reset();
       })
       .catch((err) => {
         console.log(err);

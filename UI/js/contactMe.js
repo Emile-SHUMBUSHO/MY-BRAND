@@ -78,7 +78,7 @@ form.addEventListener("submit", function (event) {
       if (data) {
         hideLoading();
         setTimeout(() => {
-          createToast("success", "Logged in successfully");
+          createToast("success", "Message Sent successfully");
         }, 2000);
       }
       console.log(data);
